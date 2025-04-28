@@ -30,3 +30,20 @@ for character in string:
         count=count+1
 print(count) 
            
+# counting consonents in given string
+vowels=['a','e','i','o','u']
+string1='programming'
+count=0
+for char in string1:
+    if char not in vowels:
+        count=count+1
+print('number of consonents:',count)                 
+
+# occurence of character in string
+name='python programming'
+char='m'
+count=0
+for i in name:
+    if i in char:
+        count=count+1
+print('count of m in a given string is:',count)        
