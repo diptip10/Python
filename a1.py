@@ -77,3 +77,14 @@ while numbers<=10:
     print(numbers)
     numbers=numbers+1
 
+
+# reverse the sring
+def reverse_string(s):
+    reversed_str=""
+    for char in s:
+        reversed_str= char+ reversed_str
+    return reversed_str
+
+print(reverse_string("dipti"))
+
+
