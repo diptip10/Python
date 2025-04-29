@@ -47,3 +47,33 @@ for i in name:
     if i in char:
         count=count+1
 print('count of m in a given string is:',count)        
+
+
+
+
+# printing range of numbers
+for x in range (1,11):
+    print(x)
+
+## using while loop --printing range of numbers 
+num=1
+while num<=10:
+    print(num)
+    num+=1
+
+# calculate the sum of numbers in the list
+list=["1,2,3,4"]
+list1=list[0].split(",")
+total=0
+for x in list1:
+   total+=int(x)
+   print(total)
+
+
+
+# printing range of numbers using while loop
+numbers=1
+while numbers<=10:
+    print(numbers)
+    numbers=numbers+1
+
