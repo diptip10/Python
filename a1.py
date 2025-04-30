@@ -77,14 +77,40 @@ while numbers<=10:
     print(numbers)
     numbers=numbers+1
 
-
-# reverse the sring
+# reverse the string without using [::-1] or reversed()
 def reverse_string(s):
     reversed_str=""
     for char in s:
         reversed_str= char+ reversed_str
     return reversed_str
 
-print(reverse_string("dipti"))
+print(reverse_string("dipti")) 
+
+# reverse the string with [::-1] and reversed()
+def reversed_str1(s):
+    return "".join(reversed(s))
+reversed_str1("dip")
+
+def reverse(s1):
+    return s1[::-1]
+print(reverse("Pawar"))
 
 
+# find the second largest number in a list
+def sec_large_num(list1):
+    list1=list(set(list1))
+    list1.sort(reverse=True)
+    return list1[1] if len(list1)> 1 else None
+    
+nums=[10,20,30,40,50,60,60,70]
+print(sec_large_num(nums))
+
+
+
+def sec_largest_num(lst):
+    lst = list(set(lst))  # Now `list()` refers to the built-in list constructor
+    lst.sort(reverse=True)
+    return lst[1] if len(lst) > 1 else None
+
+list1 = [10, 20, 30, 40, 40, 50, 60]
+print(sec_largest_num(list1))  # Output: 50
