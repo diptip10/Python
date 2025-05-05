@@ -124,3 +124,19 @@ def sec_la_num(list1):
     list1.sort(reverse=True)
     return list1[1] 
 print(sec_la_num(l2))
+
+def third_lar_num(list):
+    list=list(set(l2))
+    list.sort(reverse=True)
+    return list[2]
+print(third_lar_num(list))
+
+
+# get the third largest number from list using ,max function
+def third_lar_no(list):
+    list=list(set(l2))
+    first_largest=max(list)
+    sec_largest=max(x for x in list if x!=first_largest)
+    third_largest=max(x for x in list if x!=first_largest and x!=sec_largest)
+    return third_largest
+print(third_lar_no(list))
