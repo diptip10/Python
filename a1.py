@@ -114,3 +114,13 @@ def sec_largest_num(lst):
 
 list1 = [10, 20, 30, 40, 40, 50, 60]
 print(sec_largest_num(list1))  # Output: 50
+
+
+
+l2=[2,3,4,4,5]
+#get 2nd largest number from the list
+def sec_la_num(list1):
+    list1= list(set(list1))
+    list1.sort(reverse=True)
+    return list1[1] 
+print(sec_la_num(l2))
