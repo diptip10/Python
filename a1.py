@@ -133,10 +133,25 @@ print(third_lar_num(list))
 
 
 # get the third largest number from list using ,max function
+l3=[4,5,6,6,7,8,8]
 def third_lar_no(list):
-    list=list(set(l2))
+    list=list(set(l3))
     first_largest=max(list)
     sec_largest=max(x for x in list if x!=first_largest)
     third_largest=max(x for x in list if x!=first_largest and x!=sec_largest)
     return third_largest
 print(third_lar_no(list))
+
+
+
+# get the common letters between the two strings
+
+def common_letters():
+    str1=input("enter 1 st string:")
+    str2=input("enter a 2nd string:")
+    str1=set(str1)
+    str2=set(str2)
+    print(str1)
+    print(str2)
+   
+common_letters()    
