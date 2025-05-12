@@ -153,5 +153,5 @@ def common_letters():
     str2=set(str2)
     print(str1)
     print(str2)
-   
+    return str1 & str2
 common_letters()    
