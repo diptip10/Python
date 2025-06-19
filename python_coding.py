@@ -24,3 +24,14 @@ str1=str1[::-1]
 # use .join() 
 str2= " ".join(str1)
 print(str2)
+# or we can directly print the output
+print(" ".join(str.split()[::-1]))
+
+# print the list of numbers from the given list where numbers iteration = 1
+mylist = [1,1,2,2,2,3,4,4,5,6,6,7]
+new_list = []
+for num in mylist:
+    if mylist.count(num) == 1 :
+        new_list.append(num)
+print(new_list)
+    
