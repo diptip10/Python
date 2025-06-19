@@ -34,4 +34,34 @@ for num in mylist:
     if mylist.count(num) == 1 :
         new_list.append(num)
 print(new_list)
-    
+
+# by using list comprehension
+[num for num in mylist if mylist.count(num)==1]
+
+# if i want sum of all the numbers from the given list
+sum=0
+for num in mylist:
+    sum+=num
+print("sum of numbers in list",sum)    
+
+# we have a string with comma seperated chara we have to get in dictionary format as it should contain 
+# chara : iteration
+
+str = "a,a,a,b,b,c,c,c"
+mylist = str.split(",")
+visited = []
+for ch in mylist:
+    if ch not in visited:
+        print(f"{ch}:{mylist.count(ch)}",end=",")
+        visited.append(ch)
+
+# OR
+mylist = str.split(",")
+visited = []
+final_list = []
+for ch in mylist:
+    if ch not in visited:
+        final_list.append(f"{ch}:{mylist.count(ch)}")
+        visited.append(ch)
+
+print(final_list)
