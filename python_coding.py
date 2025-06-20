@@ -96,6 +96,16 @@ for num in num_list:
         max = num
 print(max)        
     
+# find the min number from the list
+num_list = [2,3,4,5,6,7,22,34,32,53]
+min = num_list[0]
+for num in num_list:
+    if min > num :
+        min = num
+print(min)        
+
     
+
+        
 
         
