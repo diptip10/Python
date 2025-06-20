@@ -88,3 +88,14 @@ for occ in str:
 print("occurence of letter 'm' in a str is", ocuurence)
 
 
+# finding the max number in the list
+num_list = [2,3,4,5,6,7,22,34,32,53]
+max = num_list[0]
+for num in num_list:
+    if max < num :
+        max = num
+print(max)        
+    
+    
+
+        
