@@ -65,3 +65,26 @@ for ch in mylist:
         visited.append(ch)
 
 print(final_list)
+
+# counting vowels in a the word
+vowels = ['a','e','i','o','u']
+word = "python coding"
+count = 0
+found_vowels = []
+for x in word:
+    if x in vowels:
+        count+=1
+        found_vowels.append(x)
+print(count)         
+print(found_vowels)     
+
+
+# counting number of occurences of letter 'm' in a word
+str = 'programming'
+ocuurence = 0
+for occ in str:
+    if occ == 'm' :
+        ocuurence+=1
+print("occurence of letter 'm' in a str is", ocuurence)
+
+
