@@ -104,8 +104,11 @@ for num in num_list:
         min = num
 print(min)        
 
-    
+# converting list into string
+str1 = ['p','y','t','h','o','n']
+new_str = ''
+print(new_str.join(str1))
+# or
+new_str = "".join(str1)
+print(new_str)
 
-        
-
-        
