@@ -112,3 +112,17 @@ print(new_str.join(str1))
 new_str = "".join(str1)
 print(new_str)
 
+# checking for palindrome
+str = "level"
+if str == str[::-1]:
+    print("the string is palindrome")
+else:
+    print("not palindrome")    
+
+# counting the whitespaces in the string
+string = "p  yt  h on "
+count_spaces = 0
+for x in string:
+    if x==" ":
+        count_spaces+=1
+print(count_spaces)        
