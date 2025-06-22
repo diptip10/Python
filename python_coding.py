@@ -119,10 +119,4 @@ if str == str[::-1]:
 else:
     print("not palindrome")    
 
-# counting the whitespaces in the string
-string = "p  yt  h on "
-count_spaces = 0
-for x in string:
-    if x==" ":
-        count_spaces+=1
-print(count_spaces)        
+
