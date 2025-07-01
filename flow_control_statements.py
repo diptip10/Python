@@ -73,3 +73,46 @@ def disp():
     print(name)
 disp()
 #print(name)     here we are printing outside the function so it will give name error 
+
+# global-- scope--all the functions can access the global variable
+# case1:
+name= "dipti"
+def dips():
+    print(name)
+def dips1():
+    print('hello',name)
+disp()
+dips1()        
+
+# case2: local and global combination with different names
+a,b = 10,20
+def add(x,y):
+    print(a+b)
+    print(x+y)
+def mul(x,y):
+    print(a*b)
+    print(x*y) 
+add(4,5)
+mul(6,7)       
+
+# case3: lobal and local var with same names---priority always goes to local to represent global 
+# we have to use globals() to represent global variable
+m,n = 20,30
+def add(m,n):
+    print(m+n)
+    print(globals()['m']+globals()['n'])
+def mul(m,n):
+    print(m*n)
+    print(globals()['m']*globals()['n'])
+add(4,5)
+mul(5,6)        
+
+# case4: using global variable inside and outside the function
+x=98
+def disp1():
+    print(x)  # printing global variable inside the function
+disp1()
+print(x)   # printing global var outside the function    
+
+# inside the function once we are using global variable in this case with the same name it is not 
+# possible to declare local variable
