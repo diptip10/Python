@@ -46,3 +46,30 @@ while a<10:
     a=a+1
     print("normal code")
 
+# python variables
+# 1) local -- declare inside the function
+# 2) global -- declare outside the function
+# functions are use to write the logics of the operation
+# case1:
+def disp():
+    print("hello")
+def disp2(name):              # here name is local variable
+    print('hello',name)
+disp()
+disp2("dipti")        
+
+# case2:
+def disp1(name):
+    print('hello',name)
+def disp2():
+    name= "language"   # local variable
+    print(name)
+disp1("world")
+disp2()        
+
+# case3: scope of local variable only within the function
+def disp():
+    name= 'python'
+    print(name)
+disp()
+#print(name)     here we are printing outside the function so it will give name error 
