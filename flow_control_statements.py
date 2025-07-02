@@ -116,3 +116,35 @@ print(x)   # printing global var outside the function
 
 # inside the function once we are using global variable in this case with the same name it is not 
 # possible to declare local variable
+
+#global keyword-- inside the function to represent the global keyword variable we have function-global s
+
+def disp():
+    global s    # this is global keyword
+    s='python'
+    print(s)
+disp()
+print(s)    
+
+# non-locak keyword-->Useful in closures when you want to modify a variable in the outer (non-global) function
+def outer():
+    y = 5
+    def inner():
+        nonlocal y
+        y = 15  # Modifies y in outer()
+    inner()
+    print(y)
+
+outer()  # Output: 15
+
+
+def outer():
+    name1= 'dipti'
+    def inner():
+        nonlocal name1
+        name1='swaraj'
+    print(name1)    
+    inner()
+    print(name1)
+outer()    
+
