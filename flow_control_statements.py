@@ -148,3 +148,16 @@ def outer():
     print(name1)
 outer()    
 
+name='python'
+def outer():
+    name1= 'java'
+    def inner():
+        nonlocal name1
+        name1="scala"
+        global name
+        name= 'c++'
+    print(name1)   # outer name1
+    inner()    # inner function calling
+    print(name1)  # scala
+outer()
+print(name)      # c++ global python change to c++
