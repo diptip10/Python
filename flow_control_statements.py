@@ -161,3 +161,68 @@ def outer():
     print(name1)  # scala
 outer()
 print(name)      # c++ global python change to c++
+
+
+# functions in python
+# 1) prefefined functions   2) user-defined functions
+
+# function arguments
+# 1) default argument  2) required argument  3) keyword argument   4) var argument
+
+# default
+def disp(eid=111, ename='john', esal= 10000):
+    print(eid,ename,esal)
+disp()              # if not pass any value then default value will be taken
+disp(222)  
+disp(333,"bella") 
+
+# 2) required
+def disp(eid, ename,esal):
+    print(eid,ename, esal)
+disp(1,'john',10000)    
+disp('jack',2,20000)
+
+# mixing both required and default
+def disp(eid,ename="prince",esal=30000):   # once the default arguments started next all must be default 
+    print(eid,ename, esal)
+disp(3)    
+
+#3) keyword argument-- while passing the data we must specify the name of the variable
+def disp(eid,ename,esal):
+    print(eid,ename, esal)
+disp(eid=1,ename= "albert",esal=10000)    
+disp(ename= "albert",eid=1,esal=10000)     # order of argument is not required
+
+#4) variable argument
+def disp(*a):
+    for x in a:
+        print(a)
+disp()        
+disp(2,3)       
+
+
+##
+name1='anil'
+def outer():
+    name1= 'dipti'
+    def inner1():
+        name1='swaraj'
+        print("inner function name",name1)
+    def inner2():
+        nonlocal name1
+        name1='ajinkya'
+        print("inner function name",name1)
+    def inner3():
+        global name1
+        name1='sangita'
+        print("inner function name",name1) 
+    print(name1)
+    inner1()
+    print(name1)
+    inner2()
+    print(name1)
+    inner3()
+    print(name1)
+#print(name1)    
+outer()
+print(name1)              
