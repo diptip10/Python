@@ -27,4 +27,26 @@ while num <= 10:
     print(num)
     num+=1
 
-print("Hello, Dipti!")
+# write a program that displays all numbers from 1 to 100
+number=1
+while number in range(1,101):
+    print(number)
+    number+=1
+
+for numbers in range(1,101):
+    print(numbers)
+
+# write a program that prints all even numbers from 1 to 100
+num=1
+while num <=100:
+    if num%2==0:
+        print(num)
+    num+=1
+
+# by using for loop get even numbers
+for numbers in range(1,101):
+    if numbers%2==0:
+        print(numbers)
+        # or
+for numbers in range(2,101,2):
+    print(numbers)        
