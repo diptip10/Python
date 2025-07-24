@@ -50,3 +50,23 @@ for numbers in range(1,101):
         # or
 for numbers in range(2,101,2):
     print(numbers)        
+
+
+# write a program that displays even numbers from 1 to 50 and odd numbers 51 to 100 using a repeating loop
+for numbers in range(1,51):
+    if numbers%2==0:
+        print("even number:",numbers)
+
+for numbers in range(51,101):
+    if numbers%2!=0:
+        print("odd number:",numbers)
+
+number=1
+while number <=100:
+    if number<=50:
+        if number%2==0:
+            print('even',number)
+    else:
+        if number!=0:
+            print("odd",number)
+    num+=1
