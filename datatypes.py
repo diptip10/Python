@@ -67,6 +67,14 @@ while number <=100:
         if number%2==0:
             print('even',number)
     else:
-        if number!=0:
+        if number%2!=0:
             print("odd",number)
-    num+=1
+    number+=1
+
+
+# create a program that prompts the user for a number and display the table of that number using a loop
+number = int(input("Enter a number for table creation: "))
+for i in range(1, 11):
+    product = number * i
+    print(product,"X",i,"=",product)
+
