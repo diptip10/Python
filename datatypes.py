@@ -99,5 +99,20 @@ while num<=number:
     num+=1
     print("sum of numbers using while loop:",sum_of_numbers)
         
+# write a program that calculates and displays the sum of even numbers from 1 to 100 using repeating loop
+# by using for loop
+sum_of_numbers=0
+for num in range(101):
+    if num%2==0:
+        sum_of_numbers+=num
+    print(sum_of_numbers)
+
+# by using while loop
+sum_of_numbers=0
+num=0
+while num <= 101:
+    sum_of_numbers+=num
+    print(sum_of_numbers)
+    num+=2
 
 
