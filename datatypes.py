@@ -76,5 +76,28 @@ while number <=100:
 number = int(input("Enter a number for table creation: "))
 for i in range(1, 11):
     product = number * i
-    print(product,"X",i,"=",product)
+    print(number,"X",i,"=",product)
+
+
+i=1
+while i<=10:
+    product=number*i
+    print(number,'X',i,'=',product)
+    i+=1
+
+# write a program that asks for a number N and displays the sum of all numbers from 1 to N
+number=int(input('enter a number:'))
+sum_of_numbers=0
+for num in range(1,number+1):
+    sum_of_numbers+=num
+    print("sum of N numbers using for loop",sum_of_numbers)
+
+sum_of_numbers=0
+num=1
+while num<=number:
+    sum_of_numbers+=num
+    num+=1
+    print("sum of numbers using while loop:",sum_of_numbers)
+        
+
 
