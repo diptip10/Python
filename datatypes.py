@@ -116,6 +116,20 @@ while num <= 101:
     num+=2
 
 # write a program that asks the user for number N and says whether it is prime or not
+number= int(input('enter a number:'))
+def is_prime(num):
+    if num<=1:
+        return False
+    for i in range(2,int(num**0.5)+1):
+        if num%i==0:
+            return False
+    return True
+for x in range(2,number+1):
+    if is_prime(x):
+        print("prime number:", x)
+
+
+# get primes from the given list of numbers
 def is_prime(n):
     if n<=1:
         return False
