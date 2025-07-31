@@ -183,7 +183,15 @@ fibonacci(10)
 
 # write a program that reads numbers from the user until the negative number is entered and print the 
 # sum of positive integers
+total_sum=0
+while True:
+    numbers=int(input('enter a number:'))
+    if numbers<0:
+        break
+    total_sum+=numbers
+print(total_sum)
 
+# getting the sum of numbers in the list before occurence of the negative number in list
 list=[1,2,3,4,5,-2,-3]
 sum=0
 for x in list:
