@@ -189,7 +189,19 @@ while True:
     if numbers<0:
         break
     total_sum+=numbers
+
 print(total_sum)
+
+# without using break statement
+total_sum=0
+#numbers=0
+while numbers>=0:
+    numbers= int(input('enter a number:'))
+    if numbers>=0:
+        total_sum+=numbers
+print(total_sum)
+
+
 
 # getting the sum of numbers in the list before occurence of the negative number in list
 list=[1,2,3,4,5,-2,-3]
