@@ -181,4 +181,17 @@ def fibonacci(n):
 fibonacci(10)
 
 
+# write a program that reads numbers from the user until the negative number is entered and print the 
+# sum of positive integers
 
+list=[1,2,3,4,5,-2,-3]
+sum=0
+for x in list:
+    if x<0:
+        break
+    sum+=x
+    
+print(sum)
+    
+
+    
