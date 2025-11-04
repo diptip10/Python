@@ -31,3 +31,27 @@ Key Features :
 
 
 '''
+
+# # Python identifier
+# -----------------------
+#  python identifier are names you assign to a variable, class and function following the spaecific rule 
+# regarding the character usage, starting letters and avoiding reserved key
+
+name = 'seeya'  #variable identifier
+
+def greet():          # function identifier
+    print("Hello")
+
+greet()
+
+class Student:        # class identifier
+    pass
+
+# Rules for Writing Identifiers in Python
+# ------------------------------------------
+# 1. Must start with a letter (A–Z, a–z) or an underscore (_)
+# 2. Can contain letters, digits, and underscores
+# 3. Cannot start with a digit
+# 4. No special characters like @, $, %
+# 5. Cannot be a keyword (e.g., if, class, for)
+# 6. Case-sensitive (name ≠ Name)
