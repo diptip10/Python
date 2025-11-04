@@ -55,3 +55,27 @@ class Student:        # class identifier
 # 4. No special characters like @, $, %
 # 5. Cannot be a keyword (e.g., if, class, for)
 # 6. Case-sensitive (name ≠ Name)
+
+# Python Statements
+# -----------------
+# A Python statement is an instruction that the Python interpreter can execute.
+
+# Example 1: Assignment statement
+x = 10   # assigns value 10 to variable x
+
+# Example 2: Print statement
+print("Hello, Python!")   # prints text to the console
+
+# Example 3: Conditional statement
+if x > 5:
+    print("x is greater than 5")
+
+# Example 4: Loop statement
+for i in range(3):
+    print("Loop count:", i)
+
+# Example 5: Function definition statement
+def greet():
+    print("Welcome to Python!")
+
+greet()
