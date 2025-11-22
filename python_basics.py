@@ -43,5 +43,44 @@ print(type(eid))
 print(type(ename))
 print(type(esal))
 
+# concat- possible to concat only similar type of data
+
+# single line of code
 a,b,c= 10,20,30
 print(a+b+c)
+
+print(10+20)
+print("python"+ "python")
+print(10.4+20.6)
+print(True+False)
+
+#Whenever you are trying to combine two different types of data you will get the type error
+print('python' + 10)  # type error as these are two diff values 'str' and 'int'
+
+print(True+10)   # True is nothing but 1
+print(False+10.5)
+
+print(10+10.5)   # 10 and 10.5 are both number type
+
+# We can reassign the same variable multiple times
+# Reassigning
+a= 100
+print(a)
+a=10  # reassign the same variable 'a'
+print(a)
+
+# Swapping data
+a,b =10, 20
+print(a)
+print(b)
+a,b = b,a  # swapping of 'a' to 'b' and 'b' to 'a'
+print(a)
+print(b)
+
+# delete variable
+a= 10
+print(a)
+del a  # here memory is deleted
+print(a)  # name error  as we already deleted variable 'a'
+
+# name error-  We will get the name error when corresponding data/ variable/ function is not available
