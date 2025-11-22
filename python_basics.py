@@ -43,3 +43,5 @@ print(type(eid))
 print(type(ename))
 print(type(esal))
 
+a,b,c= 10,20,30
+print(a+b+c)
