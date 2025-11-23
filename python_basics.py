@@ -84,3 +84,45 @@ del a  # here memory is deleted
 print(a)  # name error  as we already deleted variable 'a'
 
 # name error-  We will get the name error when corresponding data/ variable/ function is not available
+
+
+# printing data in different ways
+eid, ename, esal = 111, 'siya' , 10000.45
+#1 
+print(eid)
+print(ename)
+print(esal)
+
+#2
+print("eid", eid)
+print("ename", ename)
+print("esal", esal)
+
+#3
+print(eid, ename, esal)
+
+#4
+print("eid=",eid, "ename=",ename,"esal=",esal)
+
+#The input() function is used to take input from the end user.
+# It always returns the input as a string, regardless of what the user types.
+
+number1= input('enter first value:')   # value is taken in "str" format
+number2= input('enter second value:')
+add = number1 + number2
+print("addition:", add)
+
+# Formating data
+#1. %  -  %d (int) , %g %f (float) , %s (string)
+#2. {} -
+
+# to print the data using % option
+eid, ename, esal = 111, 'siya' , 10000.45
+print("eid= %d ename = %s esal = %g"%(eid,ename,esal))
+
+# print using {}
+print("eid= {} ename={} esal={}".format(eid,ename,esal))
+
+print("eid={0} ename={1} esal={2}".format(eid,ename,esal))
+# Indexing allows you to choose which value goes into which placeholder {} in a formatted string.
+print("eid={0} ename={2} esal={1}".format(eid,ename,esal))
