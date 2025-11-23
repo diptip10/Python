@@ -126,3 +126,41 @@ print("eid= {} ename={} esal={}".format(eid,ename,esal))
 print("eid={0} ename={1} esal={2}".format(eid,ename,esal))
 # Indexing allows you to choose which value goes into which placeholder {} in a formatted string.
 print("eid={0} ename={2} esal={1}".format(eid,ename,esal))
+
+# FLOW CONTROL STATEMENTS
+# 1) conditional - 1. if   2.if-else  3. elif
+# 2) Interation - 1. for  2. while
+# 3) transfer - 1. break  2. continue
+
+# CONDITIONAL STATEMENT
+
+# case 1 :   if-else condition
+a=10
+if a>20:                         # basic condition
+    print('true condition')
+else:
+    print('false condition')
+
+# case 2 
+if True:                            # Boolian constant
+    print("true condition")
+else:
+    print("false condition")
+
+# case 3
+if 0:
+    print("true condition")
+else:
+    print("false condition")
+
+# case 4
+if True:                    # normal code
+    print("python")
+    print("python coding")
+print("Normal code")
+
+# case 5 
+print("if body") if True else print("else body")  # single line code
+
+# case 6 - You should take multiple statements in braces {}
+{print("python"),print("code")} if 10<20 else {print("else body"), print("else code")}
