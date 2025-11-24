@@ -253,3 +253,50 @@ for x in range(10):
 else:
     ("normal execution of for loop")
 
+
+# WHILE LOOP - A while loop is used when you want to repeat a block of code as long as a condition is true.
+# while (condition):
+#     body
+
+a=0
+while a<5:
+    print("hi")
+    a=a+1
+    print("normal code")
+
+a=0
+while a<10:
+    print("python")
+    a=a+1
+else:
+    print("normal execution of while")
+
+# in 3 cases else block not executed
+# case1 - Break statement
+a=0
+while a<10:
+    print("hi")
+    a=a+1
+    if a == 5:
+        break
+else:
+    print("normal execution of while")
+
+# case2 - exception in while
+a=0
+while a<10:
+    print("hello")
+    a=a+1
+    print(10/0)
+else:
+    print("normal execution of while")
+
+# case3 - exit(0)
+import os
+a=0
+while a<10:
+    print("hi")
+    a=a+1
+    os._exit(0)
+else:
+    print("normal execution of while")
