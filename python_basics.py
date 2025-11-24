@@ -300,3 +300,35 @@ while a<10:
     os._exit(0)
 else:
     print("normal execution of while")
+
+# TRANSFER STATEMENT - 1.BREAK  2.CONTINUE  
+#1.BREAK - Immediately terminates the loop (for/while) and Control goes outside the loop
+#2.CONTINUE - Skips the current iteration and Control goes to the next loop iteration
+#case1
+for x in range(10):
+    if x == 4:
+        break
+    print(x)
+
+#case2
+# if True:
+#     print("world")
+#     break           # syntax error : 'break' outside loop 
+#     print("hello")
+
+#case3
+# if True:
+#     print("dipti")
+#     continue       # syntax error: 'continue' outside loop
+#     print("pawar")
+
+#case4
+for x in range(10):
+    if x==4:    
+        continue  # When x == 4 the continue statement skips that iteration That means 4 will not be printed
+    print(x)
+
+# break and continue are NOT allowed inside normal conditional statements alone.
+# They must be used inside loops (for or while).
+# Even if they are written inside an if-statement, that if-statement must itself be inside a loop.
+
