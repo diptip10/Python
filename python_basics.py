@@ -358,3 +358,82 @@ def disp():
     print("good evening",name)
 disp()
 print(name) # here we are trying to print local variable outside the function  -- name error
+
+
+#GLOBAL VARIABLES -- variables which are declare outside of the function is call global variable
+# scope- all the functions can access the global variable
+
+#case1
+name= "xyz"  # global variable
+def disp1():
+    print("good morning", name)
+def disp2():
+    print("good evening", name)
+disp1()
+disp2()
+
+#case2  -- local and global (combination) different names
+a,b=10,20        #global variables
+def add(x,y):     # x and y are local variables (function arguments)
+    print(x+y)   # uses local variables
+    print(a+b)   # uses global variables
+def multi(x,y):   # x and y are local variables (function arguments)
+    print(x*y)    # uses local variables
+    print(a*b)    # uses global variables
+add(3,3)
+multi(4,4)
+
+
+# Case 3 — Local & Global Variables (Same Names)
+a, b = 10, 20 # Global variables
+
+def add(a, b):        # local variables (same name as globals)
+    print(a + b)      # uses LOCAL a, b
+    print(globals()['a'] + globals()['b'])   # uses GLOBAL a, b
+
+def mul(a, b):        # local variables (same name as globals)
+    print(a * b)      # uses LOCAL a, b
+    print(globals()['a'] * globals()['b'])   # uses GLOBAL a, b
+
+add(3, 3)
+mul(4, 4)
+# Whenever local and global variables have the same name, the priority 
+# always goes to the local variable. To access the global variable, 
+# we must use globals() inside the function.
+
+
+#case4
+name = "dipti"  # global variable
+def disp1():
+    print(name)   # printing global variable inside the function
+disp1()
+print(name)     # printing global variable outside the function
+# scope of global var - all functions can access global variable
+
+# OBSERVATIONS
+#case1
+name = "xyz"  # global variable
+def disp():
+    name = "abc"  # local variable
+    print(name)   # printing local variable
+
+disp()  # calling function
+print(name)  # printing global variable
+
+
+#case2 -- When we try to use and modify a global variable inside a function 
+# without using the 'global' keyword, Python treats it as a local variable.
+# This leads to an error if we use the variable before assigning it.
+
+name = "abc"   # global variable
+
+def disp():
+    # The next line will give an error because Python thinks 'name' is local
+    # but we are trying to print it before assigning it inside this function
+    print(name)  
+
+    name = "xyz"   # local variable (Python treats it as local because of assignment)
+    print(name)    # printing local variable
+
+disp()  # calling the function
+print(name)  # printing global variable
