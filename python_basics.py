@@ -332,3 +332,29 @@ for x in range(10):
 # They must be used inside loops (for or while).
 # Even if they are written inside an if-statement, that if-statement must itself be inside a loop.
 
+# PYTHON VARIABLES -- A variable is a name that stores a value.
+# types --  1. local variable     2. global variable
+# local variable -- variable which are declare inside the function, function argument are also local var
+#case1
+def disp1():            # function use to write the logics of the operation
+    print("hello world")
+def disp2(name):        # function argument is the local variable
+    print("good evening", name)
+disp1()
+disp2("dipti")
+
+#case2
+def disp1(name):         
+    print("good morning", name)
+def disp2():
+    name = "xyz"  # if we declare the variable inside the function then it is local variable
+    print("good evening", name)
+disp1("abc")
+disp2()
+
+#case3 -- scope of local variable is only within the functions
+def disp():
+    name = "xyz"
+    print("good evening",name)
+disp()
+print(name) # here we are trying to print local variable outside the function  -- name error
