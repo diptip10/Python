@@ -538,3 +538,42 @@ disp()
 # remains unchanged because local variable does not affect global variable
 print(s)     # prints "alex"
 
+
+# NONLOCAL KEYWORD
+# inside the inner function, to represent (modify) the outer function variable
+# we have to use the nonlocal keyword
+#case1
+
+def outer():
+    name1 = "AAA"     # outer function variable
+
+    def inner():      # inner function declaration
+        nonlocal name1   # tells Python: use the variable from the outer function
+        name1 = "BBB"    # modifying the outer function variable
+
+    print(name1)     # printing outer function variable before calling inner()
+    inner()          # calling inner function (this changes name1)
+    print(name1)     # printing outer function variable after modification
+
+outer()
+
+#case2
+
+name  = 'PQR'   # global variable
+
+def outer():
+    name1 = "ABC"   # outer function variable
+
+    def inner():      # inner function declaration
+        nonlocal name1   # use the variable from outer() function
+        name1 = "XYZ"     # modifying the outer function variable
+
+        global name       # use the global variable
+        name = "EFG"      # modifying the global variable
+
+    print(name1)   # before calling inner() → ABC
+    inner()
+    print(name1)   # after calling inner() → XYZ
+
+outer()
+print(name)        # global name → EFG
