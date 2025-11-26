@@ -577,3 +577,47 @@ def outer():
 
 outer()
 print(name)        # global name → EFG
+
+
+# FUNCTIONS IN PYTHON
+# 1. PREDEFINED FUNCTIONS (like print(), len(), type())
+# 2. USER-DEFINED FUNCTIONS (functions we create using def)
+
+# Functions are used to write the logic of an application and avoid repetition.
+
+# To declare a function, we use the keyword: def
+# Function name in this example: disp
+
+def disp():        # Function declaration with zero arguments
+    print("good morning:")
+
+disp()             # Function call
+
+# function declaration under function calling (Declaration first, then calling)
+
+# case 1
+def disp1():                 # Function declaration with zero arguments
+    print("good morning:")
+
+def disp2(name):             # Function declaration with one argument
+    print("good evening:", name)
+
+disp1()                      # Function calling
+disp2("Dipti")               # Function calling with argument
+
+
+# case 2 -- variable accessing in function
+
+x, y = 100, 200     # Global variables
+
+def add(a, b):       # Function with 2 arguments
+    print(a + b)      # Using local variables (a, b)
+    print(x + y)      # Using global variables (x, y)
+
+def mul(a, b):       # Another function with 2 arguments
+    print(a * b)      # Using local variables
+    print(x * y)      # Using global variables
+
+add(20, 20)           # Function calling
+mul(30, 30)
+
