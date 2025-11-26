@@ -437,3 +437,104 @@ def disp():
 
 disp()  # calling the function
 print(name)  # printing global variable
+
+
+# SEPERATOR
+print(10,20,30,40,sep='%')
+
+print(1,2,3,4,sep="***")
+
+
+# PYTHON IDENTIFIER
+# Any name given to a variable, function, class, module, or object in Python is called an identifier.
+
+# Examples of identifiers:
+name = "Dipti"          # 'name' is a variable identifier
+age = 25                # 'age' is also a variable identifier
+
+def my_function():      # 'my_function' is a function identifier
+    pass
+
+class Student:          # 'Student' is a class identifier
+    pass
+
+# Rules for Python Identifiers
+# 1. Identifiers can contain alphabets, digits, and underscores (_)
+# 2. Cannot start with a digit
+# 3. Special characters like @, $, % are not allowed
+# 4. Identifiers are case sensitive  (age, Age, AGE are different)
+# 5. No length limit
+# 6. Cannot use Python keywords (like if, for, while, class) as identifiers
+
+#The global keyword is a reserved keyword in Python used inside a function to tell Python that:
+# "This variable is a global variable, not a local variable."
+# It allows you to access and modify a global variable from inside a function.
+
+#case1
+def disp():
+    global x       # this is global keyword
+    x = "xyz"      # modifying the global variable
+    print(x)
+
+disp()
+print(x)
+
+#case2
+s = "java"
+def disp():
+    print(s)   # syntax warning : name is used prior the global declaration
+    global s
+    s = "python"
+    print(s)
+
+disp()
+print(s)
+
+#case3
+s = "xyz"   # Global variable
+
+def disp():
+    
+    global s   # Telling Python that we want to use the global variable 's'
+    s = "pqr"   # Changing the value of the global variable
+    print(s)   # Printing the updated value inside the function
+
+disp()   # Calling the function
+
+# Printing the global variable outside the function 
+# It will show the updated value because we used 'global'
+print(s)
+
+# case 1 -- UnboundLocalError:
+# This error occurs because Python considers 's' as a local variable 
+# inside the function since we assign a value to it (s = "john").
+# But before assigning, we try to print(s), which causes:
+# UnboundLocalError: local variable 's' referenced before assignment
+
+s = "alex"   # global variable
+def disp():
+    # Python thinks 's' is LOCAL because of the assignment below.
+    # So, this print tries to access local 's' before it is assigned.
+    print(s)  # Causes UnboundLocalError
+    s = "john"   # local variable (Python treats this as local)
+    print(s)
+
+disp()
+print(s)   # prints the global variable "alex"
+
+# case 2 - If we are NOT printing or using the global variable inside the function
+# then we CAN declare a local variable with the same name.
+# Python will treat the 's' inside the function as a LOCAL variable.
+
+s = "alex"   # global variable
+def disp():
+    s = "john"   # local variable (only inside this function)
+    print(s)     # prints the local variable "john"
+
+# calling the function
+disp()
+
+# printing the global variable outside the function
+# remains unchanged because local variable does not affect global variable
+print(s)     # prints "alex"
+
