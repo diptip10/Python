@@ -621,3 +621,59 @@ def mul(a, b):       # Another function with 2 arguments
 add(20, 20)           # Function calling
 mul(30, 30)
 
+
+# FUNCTION ARGUMENTS - 1. default  2. required  3. keyword   4. varriable
+# 1. default argument -- If a value is not passed, Python uses the default value.
+
+# Function with default arguments
+def disp(eid=111, ename='dipti', esal=20000):
+    print(eid, ename, esal)# This line prints the employee details
+    print("****")  # Separator line
+
+disp()  # No values passed → all default values will be used
+
+disp(222)   # Only the 1st argument passed → eid will change, others use default
+
+disp(333, 'Tina')  # 1st and 2nd arguments passed → eid and ename change, esal stays default
+
+disp(444, 'Riya', 10000)   # All arguments passed → no default values used
+
+
+#2. required argument - You must pass values for these arguments; otherwise, you get an error.
+
+def disp(eid, ename, esal):
+    print(eid, ename, esal)
+    print("****")
+
+disp(111,'anu', 10000)
+
+
+## Mixing default and required arguments in Python
+
+# RULE:
+# Once you start giving default values, all the arguments to the RIGHT 
+# must also have default values.
+#
+# VALID EXAMPLES:
+# def disp(eid, ename="anu", esal=10000)  → valid (default arguments are at the end)
+# def disp(eid, ename, esal=10000)        → valid (default argument comes last)
+#
+# INVALID EXAMPLE:
+# def disp(eid, ename="anu", esal)        → invalid 
+# Python error: "non-default argument follows default argument"
+# Because 'esal' (required) comes AFTER a default argument.
+
+
+# -------------------------------------------
+# Correct function definition
+# -------------------------------------------
+def disp(eid, ename="priya", esal=10000):
+    # This prints employee details
+    print(eid, ename, esal)
+    print("***")   # separator
+
+disp(111)  # Only eid provided → ename and esal use default values
+
+disp(222, "siya")  # eid and ename provided → esal uses default
+
+disp(333, "Diya", 20000)    # All values provided → no default used
