@@ -677,3 +677,87 @@ disp(111)  # Only eid provided → ename and esal use default values
 disp(222, "siya")  # eid and ename provided → esal uses default
 
 disp(333, "Diya", 20000)    # All values provided → no default used
+
+# 3. Keyword Arguments
+# When calling a function, we can pass values in the form key = value.
+# The order does NOT matter because each value is mapped using the key name.
+
+def disp(eid, ename, esal):
+    print(eid, ename, esal)   # Print the employee information
+    print("***")  # Separator line
+# Calling using keyword arguments
+disp(eid=111, ename='Tina', esal=10000)   # Order is same as function definition, but not required
+
+disp(eid=222, esal=20000, ename="Riya") # Order changed,still valid because values are matched using keys
+
+# RULE:
+# Once you start using a keyword argument in a function call,
+# all the arguments that come AFTER it must also be keyword arguments.
+
+# ---------------------------------------------
+# Examples:
+# ---------------------------------------------
+# disp(111, ename = 'ABC', esal = 10000) : valid -- # First argument is positional, next are keyword arguments
+# disp(111, 'ABC', esal = 10000) : valid -- # First two arguments are positional, last is keyword
+
+# disp(111, ename = 'ABC', 10000) : invalid -- # Keyword argument is used first, but after
+#  that a positional argument appears. This breaks the rule → SyntaxError
+
+
+# 4. VARIABLE ARGUMENT (*args)
+# Used when you don't know how many values will be passed.
+
+# ------------------ Case 1 ------------------
+# *a collects all positional arguments into a tuple.
+def disp(*a):
+    for x in a:
+        print(x)
+
+disp()           # no arguments → empty tuple
+disp(10)         # one argument
+disp(10, 20)     # multiple arguments
+
+
+# ------------------ Case 2 ------------------
+# Required argument + variable arguments
+def disp(name, *a):   # 'name' MUST be passed, *a collects the rest
+    print(name)
+    for x in a:
+        print(x)
+
+disp("aaa")           # only required argument
+disp("bbb", 10)       # + one extra value
+disp("ccc", 10, 20)   # + multiple values
+
+
+# ------------------ Case 3 ------------------
+# Default argument + variable arguments
+def disp(name="Riya", *a):  # if name not passed, default "Riya" is used
+    print(name)
+    for x in a:
+        print(x)
+
+disp()                 # uses default name
+disp("aaa")            # overrides default
+disp("bbb", 10)
+disp("ccc", 10, 20)
+
+
+# ------------------ Case 4 ------------------
+# Variable argument FIRST, then a normal argument
+# Here 'name' must ALWAYS be passed as a keyword argument.
+def disp(*a, name):
+    print(name)
+    for x in a:
+        print(x)
+
+disp(name="Tina")              # no positional args, only keyword arg
+disp(10, 20, 30, name="Tina")  # positional args collected into *a
+
+
+# RULE:
+# When variable argument (*a) comes LAST → remaining values become part of *a.
+#     Example: def disp(name, *a)
+
+# When *a comes FIRST → next normal arg MUST be passed using keyword.
+#     Example: def disp(*a, name)
