@@ -761,3 +761,60 @@ disp(10, 20, 30, name="Tina")  # positional args collected into *a
 
 # When *a comes FIRST → next normal arg MUST be passed using keyword.
 #     Example: def disp(*a, name)
+#---------------------------------------------------------------------------------
+
+
+# RETURN TYPE-------------
+#case1
+def disp():
+    print("good morning")
+    return 10
+
+x= disp() # holding return value
+print("return value:",x)
+
+# instead of holding and calling the function we can also directly call the function
+#ex
+def disp():
+    print("good morning")
+    return 10
+print(disp())
+
+# case 2
+# Once a return statement is executed,
+# the function stops immediately.
+# Any code after return will NOT run.
+
+def disp():
+    print("good morning")
+    return 10      # function ends here
+    return 20      # this line is ignored (unreachable)
+
+x = disp()          # calls the function
+print("returned value:", x)
+
+
+# case 3 : Returning one of two values using if-else
+
+def disp():
+    print("good morning")
+
+    # Condition decides which value to return
+    if 10 < 20:
+        return "Tina"   # this will return if the condition is true
+    else:
+        return "Riya"   # this will return if the condition is false
+
+x = disp()   # the returned value (Tina or Riya) is stored in x
+print("return value =", x)
+
+
+# case 4
+# If a function does not have a return statement,
+# Python automatically returns "None" by default.
+
+def disp():
+    print("good morning")   # only prints something
+
+x = disp()                  # disp() returns None automatically
+print("return value =", x)  # prints None
