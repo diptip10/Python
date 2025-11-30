@@ -1110,3 +1110,63 @@ print("riya" == "siya")  # False, strings are different
 print("riya" == "riya")  # True, both strings are same
 print("riya" != "siya")  # True, because they are not equal
 
+# Example 8 : String useful functions
+
+text = "hello everyone"
+
+print("upper = ", text.upper())   # upper() → Converts entire string to uppercase
+
+print("lower = ", text.lower())  # lower() → Converts entire string to lowercase
+
+print("capitalize = ", text.capitalize()) # capitalize() → Makes the first character uppercase and the rest lowercase
+
+# split() → Breaks the string into words (default: split by space)
+# join() → Joins the list back into a string using a separator
+# Here "+" is used as the joining character
+print("join = ", "+".join(text.split()))   # Output: hello+everyone
+
+print("replace=",text.replace("everyone","world")) # replace(old, new)→ Replaces a substring with another substring
+
+# Example 9
+
+# SPLIT FUNCTION
+str2 = "hello how are you.where are you"
+print(str2.split())  # split() with no argument splits by space
+
+print(str2.split(".")) # split(".") splits the string wherever a dot is found
+
+# ENUMERATE FUNCTION
+# enumerate() gives index + value pair from the string
+str = "python"
+print(tuple(enumerate(str)))  # converting enumerate object to tuple
+
+print(list(enumerate(str))) # converting enumerate object to list
+
+# COUNT FUNCTION
+s = "programming"
+print(s.count('a')) # count how many times 'a' occurs
+print(s.count('m')) # count how many times 'm' occurs
+print(s.count('g', 4)) # count how many times 'g' occurs starting from index 4
+print(s.count('pro', 0, 3)) # count 'pro' in the substring from index 0 to 3
+print(s.count('pro', 3, 6)) # count 'pro' in the substring from index 3 to 6
+
+# Example 10
+str1 = "welcome to python programming"
+
+print(str1.endswith("programming"))   # True → string ends with "programming"
+print(str1.endswith("to", 2, 16))      # False → substring[2:16] does not end with "to"
+print(str1.startswith("welcome"))      # True → starts with "welcome"
+print(str1.startswith("come", 3, 10))  # True → substring[3:10] starts with "come"
+
+
+# Example 11 : find , index and swapcase
+str = "lets learn python"
+
+print(str.find("learn"))    # returns starting index if found → 5
+print(str.find("hello"))    # returns -1 if not found
+print(str.index("earn"))    # returns index if found → 6
+print(str.index("l", 3, 9)) # search 'l' between index 3 and 9 → returns 5
+# print(str.index("hello")) # ValueError if substring not found
+
+string1 = "python programming language"
+print(string1.swapcase())   # swap upper ↔ lower case
