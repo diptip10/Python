@@ -990,6 +990,123 @@ print(s[:-1])      # 'indexin' → whole string except last char
 print(s[-5:])      # 'exing' → from -5 to end
 
 print(s[:])        # 'indexing' → entire string
-
-
 # print(s[-9])     # ERROR → index out of range
+
+# Example 3 : length and strip function
+# strip()  → removes spaces/characters from BOTH sides
+# lstrip() → removes spaces/characters from the LEFT side
+# rstrip() → removes spaces/characters from the RIGHT side
+# len()    → returns length of the string
+
+s = "   dipti   "     # string with leading and trailing spaces
+
+print(len(s))          # total length including spaces → 11
+
+print(s.strip())       # removes spaces from both sides → "dipti"
+
+print(len(s.strip()))  # length of "dipti" → 5
+
+
+s1 = "@@@dipti###"     # string with special characters on both sides
+
+print(s1.lstrip("@"))  # removes only '@' from LEFT → "dipti###"
+
+print(s1.rstrip("#"))  # removes only '#' from RIGHT → "@@@dipti"
+
+# combination of rstrip() then lstrip()
+print(s1.rstrip("#").lstrip("@"))  # first remove '#', then remove '@' → "dipti"
+
+# Example 4 : id(), is, == , in operators
+
+# id()        → prints the memory address of a variable
+# is          → compares memory address (True if both refer to SAME object)
+# is not      → opposite of is
+# ==, !=      → compare DATA (True if content is same)
+# in, not in  → checks if a substring exists in another string
+
+name1 = "dipti"
+name2 = "nikita"
+name3 = "dipti"     # same content as name1
+
+# ----------------- id() : memory address -----------------
+print(id(name1))     # memory address of name1
+print(id(name2))     # memory address of name2
+print(id(name3))     # name1 and name3 may have SAME memory address (string interning)
+
+# ----------------- is, is not : memory comparison -----------------
+print(name1 is name2)       # False → memory different
+print(name1 is name3)       # True  → same memory due to string interning
+print(name1 is not name2)   # True
+print(name1 is not name3)   # False
+
+# ----------------- ==, != : data comparison -----------------
+print(name1 == name2)       # False → data not same
+print(name1 == name3)       # True  → data is same
+print(name1 != name2)       # True
+print(name1 != name3)       # False
+
+# ----------------- in, not in : substring check -----------------
+print("di" in name1)        # True → 'di' exists in 'dipti'
+print("anu" in name1)       # False → substring not present
+print("di" not in name1)    # False
+print("anu" not in name1)   # True
+
+
+# Example 5 : Different ways to format data in Python
+# Approaches:
+# 1. Using % formatting (old style)
+# 2. Using {} with format()
+# 3. Using {} with positional indexes
+# 4. Using f-strings (modern and recommended)
+
+# Data
+eid, ename, esal = 111, "tina", 20000.45
+
+# Using % formatting (old style)
+# %d → integer
+# %s → string
+# %g → float (removes unnecessary zeros)
+print("eid = %d, ename = %s, esal = %g" % (eid, ename, esal))
+
+# Using format() without indexes
+print("eid = {}, ename = {}, esal = {}".format(eid, ename, esal))
+
+# Using format() with positional indexes
+print("eid = {0}, ename = {1}, esal = {2}".format(eid, ename, esal))
+
+# Using f-strings (most recommended)
+print(f"eid = {eid}, ename = {ename}, esal = {esal}")
+
+# Example 6 : CONCATENATION AND REPLICATION
+
+# Concatenation (+) and Replication (*) operations work only on the same data type.
+# Strings can be concatenated with strings.
+# Strings can be replicated using * with an integer.
+# Combining different types (e.g., string + int) will give a TypeError.
+
+s1 = "priya"
+s2 = "AAA"
+
+s3 = s1 + s2   # This joins two strings together.
+print(s3)  
+
+# Then concatenated using +
+ss = s1 * 3 + s2 * 2   # s1*3 → "priya" repeated 3 times  and s2*2 → "AAA" repeated 2 times
+print(ss) 
+
+
+# Example 7 : RELATIONAL OPERATORS 
+# Operators:  > , >= , <= , == , !=
+# These operators compare two values and return a boolean (True/False).
+# For strings, comparison is done using **lexicographical order** (dictionary order)
+# Python compares character by character based on ASCII/Unicode values.
+
+print("riya" > "siya")   # False, because 'r' comes before 's'
+print("riya" < "siya")   # True
+print("riya" >= "siya")  # False
+print("riya" <= "siya")  # True
+
+print("riya" == "siya")  # False, strings are different
+print("riya" == "riya")  # True, both strings are same
+print("riya" != "siya")  # True, because they are not equal
+
