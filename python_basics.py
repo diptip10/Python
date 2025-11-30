@@ -818,3 +818,114 @@ def disp():
 
 x = disp()                  # disp() returns None automatically
 print("return value =", x)  # prints None
+
+##INNER FUNCTION / NESTED FUNCTION
+def outer():
+    name1 = "ABC"              # outer function variable
+    print("outer =", name1)
+
+    def inner():
+        name2 = "PQR"          # inner function variable
+        print("inner =", name2)
+        print(name1)           # inner can access outer variable
+
+    inner()                    # calling inner function
+
+outer()                         # calling outer function
+
+
+## WITHOUT USING NON LOCAL KEYWORD
+# case1
+
+def outer():
+    name1 = "AAA"              # outer variable
+
+    def inner():
+        name1 = "BBB"          # this creates a NEW local variable inside inner()
+        print("inner =", name1)
+
+    print(name1)               # prints outer variable
+    inner()                    # call inner()
+    print(name1)               # still prints outer variable (unchanged)
+
+outer()
+
+# case 2: using nonlocal to modify outer function variable
+
+def outer():
+    name1 = "dipti"          # outer variable
+
+    def inner():
+        nonlocal name1       # use outer variable
+        name1 = "pawar"      # modify outer variable
+        print("inner =", name1)
+
+    print(name1)             # before calling inner()
+    inner()                  # call inner()
+    print(name1)             # after inner() modifies it
+
+outer()
+
+
+# case 3 :
+# If inner function is using outer function variable,
+# then inside the inner function we cannot create a local variable
+# with the same name (it will give error).
+
+def outer():
+    name1 = "dipti"              # outer variable
+
+    def inner():
+        print(name1)             # using outer variable
+        name1 = "pawar"          # ERROR: trying to create local var with same name
+        print("inner =", name1)
+
+    inner()
+
+outer()
+
+
+# GLOBAL KEYWORD
+# inside the function to represent the outer function var we are using global keyword
+
+# GLOBAL, NONLOCAL, LOCAL variable behavior 
+
+def outer():
+    # This is the variable inside outer() function
+    name1 = "dipti"
+
+    def inner1():
+        # This creates a LOCAL variable inside inner1()
+        # It DOES NOT affect outer() variable
+        name1 = "anu"
+        print("inner1 function name =", name1)
+
+    def inner2():
+        # nonlocal means: use the variable from the outer() function
+        nonlocal name1
+        name1 = "ajinkya"   # This will change outer() variable
+        print("inner2 function name =", name1)
+
+    def inner3():
+        # global means: use the global variable (outside all functions)
+        global name1
+        name1 = "pawar"     # This will create/update global variable
+        print("inner3 function name =", name1)
+
+    # Print value inside outer() initially
+    print("outer before inner1:", name1)
+
+    inner1()   # local change only
+    print("outer after inner1:", name1)
+
+    inner2()   # modifies outer() variable using nonlocal
+    print("outer after inner2:", name1)
+
+    inner3()   # modifies global variable
+    print("outer after inner3:", name1)   # outer variable is still same
+
+# Call the outer() function
+outer()
+
+# Print global name1 (set by inner3)
+print("global name1:", name1)
