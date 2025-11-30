@@ -929,3 +929,67 @@ outer()
 
 # Print global name1 (set by inner3)
 print("global name1:", name1)
+
+
+# STRING DATA TYPE
+# string represents the group of characters enclose within single or double quotes
+# immutable - modifications are not allowed
+# index - +ve and -ve
+
+# Example 1: Creating Strings in Python
+
+# String created using double quotes
+s1 = "dipti"
+print(s1)             # Output: dipti
+print(type(s1))       # Output: <class 'str'> → data type is string
+
+# String created using single quotes
+s2 = 'Anu'
+print(s2)             # Output: Anu
+
+#-------------------------------------------------------------
+# Example 2: String Indexing & Slicing
+
+# Negative Indexing : -8 -7 -6 -5 -4 -3 -2 -1
+# Characters         i   n   d   e   x   i   n   g
+
+# Positive Indexing : 0  1  2  3  4  5  6  7
+
+s = "indexing"
+
+# --------------------
+# POSITIVE INDEXING
+# --------------------
+
+print(s[2])        # 'd'  → character at index 2
+
+print(s[2:4])      # 'de' → substring from index 2 to 3
+
+print(s[1:4:2])    # 'nx' → characters at index 1 and 3 (step = 2)
+
+print(s[2:])       # 'dexing' → from index 2 till end
+
+print(s[:4])       # 'inde' → start to index 3
+
+print(s[:])        # 'indexing' → whole string
+
+
+# print(s[9])      # ERROR → index out of range (string length is 8)
+
+
+# --------------------
+# NEGATIVE INDEXING
+# --------------------
+
+print(s[-2])       # 'n' → 2nd character from end
+
+print(s[-5:-1])    # 'exin' → slice using negative indexes
+
+print(s[:-1])      # 'indexin' → whole string except last char
+
+print(s[-5:])      # 'exing' → from -5 to end
+
+print(s[:])        # 'indexing' → entire string
+
+
+# print(s[-9])     # ERROR → index out of range
