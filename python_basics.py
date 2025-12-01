@@ -1170,3 +1170,66 @@ print(str.index("l", 3, 9)) # search 'l' between index 3 and 9 → returns 5
 
 string1 = "python programming language"
 print(string1.swapcase())   # swap upper ↔ lower case
+
+# Example 12
+# isalnum() returns True only if all characters in the string are alphanumeric (A–Z, a–z, 0–9) 
+# and there are no spaces or special characters.
+str = "welcome to coding "
+print(str.isalnum())
+
+str1 = "python36"    # alphanumeric
+print(str.isalnum())
+
+# Returns True if ALL characters in the string are only alphabets (A–Z or a–z)
+str2 = "Hellopython"
+print(str2.isalpha())
+
+str3 = "This is Python3.1.6"
+print(str3.isalpha())
+
+# Returns True if ALL characters are digits (0–9)
+str4 = "HelloPython"
+print(str4.isdigit())
+
+str5 = "9876547"
+print(str5.isdigit())
+
+# Example 13
+str1 = "Python"
+print(str1.islower())   # islower() : Returns True if all characters are lowercase.
+
+str2 = "python"
+print(str2.isupper())  # isupper() : Returns True if all characters are uppercase.
+
+str3 = "python"
+print(str3.islower())
+
+str4 = "PYTHON"
+print(str4.isupper())
+
+str5 = "WELCOME TO THE WORLD"
+print(str5.isspace())   # isspace() : Returns True if the string contains only spaces / whitespace
+
+str6 = " "
+print(str6.isspace())
+
+# without using count function how to count no. of occurences
+s1 = "pythonpython"
+print(s1.count('p'))  # with count function
+
+count = 0
+for x in s1:
+    if x == 'p':
+        count = count + 1
+print(count)
+
+s = "python python is python"
+print(s.count('python'))
+
+s = "python python is python"
+words = s.split()
+count = 0
+for x in words:
+    if x == "python":
+        count+=1
+print(count)
