@@ -1463,3 +1463,51 @@ print(l2)
 
 # l3 = [10, "anu", 10.4]
 # l3.sort()              # ERROR → TypeError: cannot compare int and str
+
+# Ex 12 : index, reverse, count, len
+
+l1 = ["anu", "manu", "riya", "anu"]
+
+print(l1.index("riya"))         # index of first occurrence → 2
+print(l1.index("anu", 2))       # search 'anu' starting from index 2 → 3
+print(l1.index("anu", 2, 4))    # search 'anu' between index 2 to 3 → 3
+
+l1 = [10, 20, 30]
+l1.reverse()                    # reverse the list
+print(l1)
+
+l1 = [10, 20, 30, 10, 10]
+print(l1.count(10))             # count occurrences → 3
+
+l1 = [10, "anu", 10.4]
+print(len(l1))                  # length of list → 3
+
+# Ex 13 : min and max
+
+l1 = [10, 20, 30]
+print(max(l1))                  # 30
+print(min(l1))                  # 10
+
+l2 = ["anu", "manu", "tanu"]
+print(max(l2))                  # "tanu" → alphabetically last
+print(min(l2))                  # "anu" → alphabetically first
+
+# l3 = [10, "anu"]
+# print(max(l3))
+# print(min(l3))
+# ERROR → TypeError: cannot compare int and str
+
+# Ex 14 : Separating list elements based on condition
+
+l1 = [10, 20, 30, 40, 50, 60]
+l2 = []   # elements <= 30
+l3 = []   # elements > 30
+
+for x in l1:
+    if x <= 30:
+        l2.append(x)
+    if x > 30:
+        l3.append(x)
+
+print(l2)   # [10, 20, 30]
+print(l3)   # [40, 50, 60]
