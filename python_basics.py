@@ -1365,3 +1365,37 @@ print(l3)
 
 l4 = [x * 2 for x in range(2, 16, 4)] # multiply selected numbers by 2
 print(l4)
+
+# Ex 8 : List is mutable → modifications allowed
+
+# Concatenation (combine two lists)
+l1 = [10, 20, 30]
+l2 = [40, 50, 60]
+l3 = l1 + l2               # merge lists
+print(l3)
+
+# Replication (repeat list)
+l1 = [10, 20, 30]
+l2 = l1 * 2                # duplicates list elements
+print(l2)
+
+# Copy (shallow copy)
+l1 = [10, 20, 30]
+l2 = l1.copy()             # creates separate copy
+print(l2)
+
+# extend() → adds elements of one list into another
+l1 = [10, 20, 30]
+l2 = [40, 50, 60]
+l1.extend(l2)              # adds all from l2
+print(l1)
+
+# append() → add single element at end
+l1 = [10, 20, 30]
+l1.append(40)
+print(l1)
+
+# insert() → insert at specific index
+l1 = ["tina", "riya"]
+l1.insert(1, "siya")       # insert before index 1
+print(l1)
