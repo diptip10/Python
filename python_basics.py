@@ -1299,3 +1299,69 @@ print(l1 != l3)
 print(10 in l1)
 print(100 in l1)
 print(10 not in l1)
+
+# Ex 4 : unpacking
+l1 =  [10,10.4,"python"]
+a,b,c = l1
+print(a,b,c)
+print(type(a),type(b),type(c))
+# while unpacking you must assign the no. of variables which are present in the list
+
+# l2 = [10,20,30]
+# a,b = l2
+# value error : too many values to unpack
+
+# Ex 5 : Nested list (list inside another list)
+
+#       0           1
+l1 = [[10, 20], [30, 40]]
+#      0   1      0   1
+
+print(l1[0])        # first inner list → [10, 20]
+print(l1[1])        # second inner list → [30, 40]
+
+print(l1[0][1])     # element 20 (inner index 1 of first list)
+print(l1[1][1])     # element 40 (inner index 1 of second list)
+
+l2 = [[1, 2, 3], ["python", "java"]]
+a, b = l2           # unpack two inner lists
+
+print(type(a))      # list
+print(type(b))      # list
+
+x, y, z = a         # unpack elements of first inner list
+print(x, y, z)      # 1 2 3
+
+# Ex 6 : printing list data using for loop
+
+l1 = [10, 20, 30, 40]
+
+for x in l1:                 # iterate full list
+    print(x)
+
+for x in l1[1:3]:            # iterate slice (20, 30)
+    print(x)
+
+# for x in l1[3]:
+#     print(x)              # ERROR → int is not iterable
+
+l2 = [[1, 2], ["hii", "hello"]]
+
+for x, y in l2:              # unpack inner lists
+    print(x)                 # print first element
+    print(y)                 # print second element
+    print(x, y)              # print both
+
+# Ex 7 : List Comprehension Examples
+
+l1 = [x for x in range(10)]          # numbers 0 to 9
+print(l1)
+
+l2 = [x * 8 for x in range(10, 18)]  # multiply each by 8
+print(l2)
+
+l3 = [x + 5 for x in range(3, 99, 3)] # add 5 to multiples of 3
+print(l3)
+
+l4 = [x * 2 for x in range(2, 16, 4)] # multiply selected numbers by 2
+print(l4)
