@@ -1233,3 +1233,69 @@ for x in words:
     if x == "python":
         count+=1
 print(count)
+
+# LIST DATA TYPE / STRUCTURE
+# Used to store group of elements (homogeneous/heterogeneous).
+# Ordered → follows indexing (positive & negative).
+# Allows duplicate values.
+# Mutable → can add, update, delete elements.
+
+# Ex 1
+l1 = [10, 20, 30, 40]     # homogeneous list
+print(l1)
+print(type(l1))            # check type
+
+l2 = [10, 10.5, 'python']  # heterogeneous list
+print(l2)
+
+l3 = []                    # empty list
+print(l3)
+
+l4 = list()                # empty list using list()
+print(l4)
+
+l5 = list("python")        # list from string → each char becomes element
+print(l5)
+# Note: list() takes only 1 iterable argument
+
+# Ex 2 : Indexing : forward and backward
+#     -4  -3  -2  -1   : backward
+l1 = [10, 20, 30, 40]
+#     0   1   2    3   : forward
+
+print(l1[3])
+print(l1[1:3])
+print(l1[1:])
+print(l1[:2])
+print(l1[:])
+print(l1[0:3:2])
+
+print(l1[-2])
+print(l1[-4:-2])
+print(l1[:])
+
+# id function: print the memory address
+# is , is not : memory comparision
+# in  , not in : checking data
+# ==  , !=   : data comparision
+l1 = [10,20,30]
+l2 = [40,50,60]
+l3 = l1      # l3 references same list as l1
+
+print(id(l1))
+print(id(l2))
+print(id(l3))
+
+print(l1 is l2)
+print(l1 is l3)
+print(l1 is not l2)
+print(l1 is not l3)
+
+print(l1 == l2)
+print(l1 == l3)
+print(l1 != l2)
+print(l1 != l3)
+
+print(10 in l1)
+print(100 in l1)
+print(10 not in l1)
