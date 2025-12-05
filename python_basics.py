@@ -1399,3 +1399,67 @@ print(l1)
 l1 = ["tina", "riya"]
 l1.insert(1, "siya")       # insert before index 1
 print(l1)
+
+# Ex 9 removing the data : con box
+l1 = [10,20,30]
+l1.remove(10)
+print(l1)
+# l1.remove(100)
+# print(l1) # value error: list remove(x): x is not in list
+
+# pop() → removes last element by default
+l1 = ["rina", "riya", 10]
+l1.pop()
+print(l1)
+
+# del keyword → delete by index or slice
+l1 = [10, 20, 30, 40]
+
+del l1[2]                  # delete index 2
+print(l1)
+
+del l1[:2]                 # delete first two elements
+# del l1[0:]               # delete all elements
+# del l1[:]                # delete entire list
+# del l1[1:4]              # delete slice
+# del l1[1:4:2]            # delete with step
+print(l1)
+
+# clear()  : removes all elements from the list
+l1 = [10,20,30]
+l1.clear()
+print(l1)
+
+# Ex 10 : Separating elements from nested list
+
+l1 = [[1, 2], ["siya", "riya"], [10.5, 20.5]]
+l3 = []          # will store first elements
+l4 = []          # will store second elements
+
+for x, y in l1:   # unpack each inner list
+    l3.append(x)  # add first element
+    l4.append(y)  # add second element
+
+print(l3)         # [1, "siya", 10.5]
+print(l4)         # [2, "riya", 20.5]
+
+# Ex 11 : Sorting lists
+
+l1 = [10, 20, 30, 5, 6, 1, 2]
+
+l1.sort()                # ascending order
+print(l1)
+
+l1.sort(reverse=True)    # descending order
+print(l1)
+
+l2 = ["anu", "manu", "bunny"]
+
+l2.sort()                # alphabetical order
+print(l2)
+
+l2.sort(reverse=True)    # reverse alphabetical
+print(l2)
+
+# l3 = [10, "anu", 10.4]
+# l3.sort()              # ERROR → TypeError: cannot compare int and str
