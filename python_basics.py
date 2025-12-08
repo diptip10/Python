@@ -1511,3 +1511,72 @@ for x in l1:
 
 print(l2)   # [10, 20, 30]
 print(l3)   # [40, 50, 60]
+
+# TUPLE DATA TYPE: ()
+# group of objects: homogeneous & heterogeneous
+# insertion order preserved
+# allows duplicates
+# supports forward & backward indexing
+# immutable
+
+# Ex 1
+t1 = (10, 20, 30)             # tuple with integers
+print(t1)
+
+t2 = (10, 20.5, "python")     # heterogeneous tuple
+print(t2)
+
+t3 = (10)                     # NOT a tuple (treated as int)
+print(type(t3))
+# if in tuple you want to insert only one value that value must seperated with comma(,)
+
+t4 = (20,)                    # single-value tuple (comma required)
+print(type(t4))
+
+t5 = ()                       # empty tuple
+print(t5)
+
+t6 = tuple()                  # empty tuple using constructor
+print(t6)
+
+t7 = tuple("python")          # tuple created from iterable (string)
+print(t7)
+
+# Ex 2  :  INDEXING
+#   -5  -4  -3  -2  -1
+t = (10, 20, 30, 40, 50)
+#    0   1   2   3   4
+print(t[0])
+print(t[2:4])
+print(t[2:])
+print(t[-2])
+
+# Ex 3 :  UNPACKING THE DATA
+t = (10, 20.5, "python")
+a, b, c = t              # unpack tuple into variables
+print(a, b, c)
+print(type(a), type(b), type(c))
+
+# Incorrect unpacking example
+# t1 = (10, 20, 30)
+# a, b = t1              # ERROR: number of variables != number of values
+# print(a, b)
+# ValueError: too many values to unpack
+
+# Ex 4 : Nested tuple → a tuple inside another tuple
+
+#        0            1
+t = ((10, 20), (30, 40, 50))
+#     0    1     0   1   2
+
+print(t[0])        # prints first inner tuple (10, 20)
+print(t[1])        # prints second inner tuple (30, 40, 50)
+print(t[1][1])     # element at index 1 of second inner tuple → 40
+print(t[0][1])     # element at index 1 of first inner tuple → 20
+
+a, b = t           # unpack top-level tuple
+print(type(a))     # both a and b are tuples
+print(type(b))
+
+x, y = a           # unpack the first inner tuple
+print(type(x), type(y))   # x and y are integers
