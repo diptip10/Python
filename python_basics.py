@@ -1580,3 +1580,123 @@ print(type(b))
 
 x, y = a           # unpack the first inner tuple
 print(type(x), type(y))   # x and y are integers
+
+# Ex 5 : print tuple data using for loop
+
+t = (10, 20, 30)
+
+for x in t:              # iterate through entire tuple
+    print(x)
+
+for x in t[1:3]:         # iterate through a slice → elements at index 1 and 2
+    print(x)
+
+# for x in t[2]:
+#     print(x)          # TypeError: 'int' object is not iterable
+# t[2] gives 30 (an int), and integers cannot be looped through
+
+# Ex 6 : adding multiple elements in tuple
+t = tuple(x for x in range(4))
+print(t)
+
+t2 = tuple(x+2 for x in range(10))
+print(t2)
+
+# Ex 7 
+# id : print memory address
+# is , is not : memory comparision
+# == , != : data comparision
+# in , not in : data contains or not
+
+t1 = (10,20,30)
+t2 = (40,50,60)
+t3 = t1
+
+print(id(t1))
+print(id(t2))
+print(id(t3))
+
+print(t1 is t2)
+print(t1 is t3)
+print(t1 is not t2)
+print(t1 is not t3)
+
+print(t1==t2)
+print(t1==t3)
+
+print(t1!=t2)
+print(t1!=t3)
+
+print(10 in t1)
+print(100 in t1)
+print(10 not in t1)
+print(100 not in t1)
+
+# Ex 8 : concat and replication
+t1 = (10,20,30)
+t2 = (40,50,60)
+t3 = t1 + t2
+print(t3)
+
+t4 = t1 * 2
+print(t4)
+
+# Ex 9 : conversion process
+# Tuples are immutable, so to modify we convert → list → tuple
+
+t = (20, 30, 40)
+
+l = list(t)        # convert tuple to list
+l.append(50)       # modify list
+print(l)
+
+t1 = tuple(l)      # convert back to tuple
+print(t1)
+
+# Ex 10 : count(), index(), len()
+
+t = (10, 10, 10, 20, 30, 40)
+
+print(len(t))           # length of tuple → 6
+
+print(t.count(10))      # count how many times 10 appears → 3
+
+print(t.index(10))      # first occurrence of 10 → index 0
+
+print(t.index(10, 2))   # search from index 2 → finds 10 at index 2
+
+print(t.index(10, 1, 2))  # search between index 1 and 2 (1 included, 2 excluded) : returns index 1
+
+# Ex 11 : sorting order
+# sort()   → only for list (in-place sorting)
+# sorted() → works for both list and tuple (returns a NEW sorted list)
+
+t = (30, 1, 4, 90)
+
+# print(t.sort())      # ERROR: tuple has no sort() method
+print(sorted(t))        # ascending order → returns a list
+print(sorted(t, reverse=True))   # descending order
+
+t = (10, 5, 78, 9)
+
+l = list(t)             # convert tuple → list
+l.sort()                # sort list ascending
+print(l)
+
+l.sort(reverse=True)    # sort list descending
+print(l)
+
+t1 = tuple(l)           # convert back to tuple
+print(t1)
+
+# Ex 12 : max and min value : only for homogenous data
+t1 = (10,20,30)
+print(min(t1))
+print(max(t1))
+
+t2 = ("python", "data", "java" )
+print(min(t2))
+print(max(t2))
+
+# t3 = (10, "python")
+# print(min(t3))       # TypeError: '<' not supported between instances of 'str' and 'int'
