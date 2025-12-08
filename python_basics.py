@@ -1700,3 +1700,17 @@ print(max(t2))
 
 # t3 = (10, "python")
 # print(min(t3))       # TypeError: '<' not supported between instances of 'str' and 'int'
+
+# Ex 13 : unpacking nested tuples inside a loop
+
+t = ((1, 2), ("tanu", "manu"), (4, 5))
+
+l1 = []
+l2 = []
+
+for x, y in t:     # each inner tuple has 2 values → unpack into x and y
+    l1.append(x)   # append first value
+    l2.append(y)   # append second value
+
+print(l1)          # [1, 'tanu', 4]
+print(l2)          # [2, 'manu', 5]
