@@ -1714,3 +1714,43 @@ for x, y in t:     # each inner tuple has 2 values → unpack into x and y
 
 print(l1)          # [1, 'tanu', 4]
 print(l2)          # [2, 'manu', 5]
+
+# SET DATA TYPE
+# Group of elements → can be homogeneous or heterogeneous
+# Duplicates not allowed
+# Insertion order not preserved (unordered)
+# No indexing, no slicing
+# Represented with { }
+# Mutable → elements can be added or removed
+# Stores only immutable (hashable) elements
+
+# Ex 1: Basic Set Operations
+
+s1 = {10, 20, 30, 40}
+print(s1)              # set: unordered, so order not preserved
+print(type(s1))        # <class 'set'>
+
+s2 = {10, 10.4, "python"}
+print(s2)              # heterogeneous elements allowed
+
+s3 = {10, 20, 30, 10}
+print(s3)              # duplicates removed automatically
+
+s4 = {}
+print(s4)              # empty {} creates dict
+print(type(s4))        # <class 'dict'>
+
+s5 = set()
+print(s5)              # correct way to create empty set
+print(type(s5))        # <class 'set'>
+
+# Ex 2: Set can store only immutable (hashable) elements
+
+s1 = {10, "python", (10, 20)}   # tuple is immutable → allowed
+print(s1)
+
+# s2 = {{10,20}}                # set is mutable → not allowed inside a set (unhashable)
+# print(s2)
+
+# s3 = {[10,20]}                # list is mutable → not allowed inside a set (unhashable)
+# print(s3)
