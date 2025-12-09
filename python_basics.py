@@ -1754,3 +1754,42 @@ print(s1)
 
 # s3 = {[10,20]}                # list is mutable → not allowed inside a set (unhashable)
 # print(s3)
+
+# Ex 3: Set is mutable → modifications allowed
+
+s1 = {10, 20, 30}
+s1.add(40)              # add() → adds a single element
+print(s1)
+
+s1.update([1, 2, 3])    # update() → adds multiple elements (expects an iterable)
+print(s1)
+
+# s1.update(100)        #  Error: int is not iterable
+
+s2 = s1.copy()          # creates a shallow copy of the set
+print(s2)
+
+# Ex 4: Concat and Replication (Not allowed for sets)
+
+s1 = {10, 20, 30}
+s2 = {40, 50, 60}
+
+# s3 = s1 + s2                # Sets do NOT support concatenation
+# print(s3)
+
+# Reason: concatenation may create duplicates → therefore not allowed
+
+# s4 = s1 * 2                 # Sets do NOT support replication
+# print(s4)
+
+# Ex 5: Iterating through a set
+
+s1 = {10, 20, 30, 40}
+
+for x in s1:
+    print(x)            # prints elements (order not guaranteed)
+
+for x in s1:
+    if x == 30:
+        break           # stops loop when x is 30
+    print(x)
