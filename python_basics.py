@@ -1793,3 +1793,17 @@ for x in s1:
     if x == 30:
         break           # stops loop when x is 30
     print(x)
+
+# Ex 6 : 
+# id() : to print the memory address
+# is, is not : memory comparision
+# == ,  != : data comparision
+# in , not in : check the data available or not
+
+s1 = {10,20,30}
+s2 = {40,50,60}
+s3 = s1
+s4 = {10,20,30}
+print(id(s1))
+print(id(s2))
+print(id(s3))
