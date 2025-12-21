@@ -1807,3 +1807,39 @@ s4 = {10,20,30}
 print(id(s1))
 print(id(s2))
 print(id(s3))
+
+print(s1 is s2)
+print(s1 is s3)
+print(s1 is not s2)
+print(s1 is not s3)
+
+print(s1 == s2)
+print(s1 == s3)
+print(s1 == s4)
+print(s1 != s2)
+print(s1 != s4)
+
+print(10 in s1)
+print(100 in s1)
+print(10 not in s1)
+print(100 not in s1)
+
+# Ex 7
+a = set("python")
+print(a)
+b = set("pythonpro")
+print(b)
+
+print(b-a)   # Difference: characters present in b but not in a
+print(a|b)   # Union: all unique characters from both sets
+print(a&b)   # Intersection: common characters in both sets
+print(a^b)   # Symmetric Difference: characters in either set but not in both
+
+basket1 = {'orange', 'apple', 'banana', 'pear'}
+basket2 = {'pear', 'orange', 'banana'}
+
+print(basket1-basket2)  # Difference: items in basket1 but not in basket2
+print(basket1|basket2)  # Union: all unique items from both baskets
+print(basket1&basket2)  # Intersection: common items in both baskets
+print(basket1^basket2)  # Symmetric Difference: items in either basket but not in both
+
