@@ -1926,3 +1926,54 @@ print(max(s2))   # Alphabetically largest string
 s3 = {10, "python"}   # Set with mixed data types
 # print(min(s3))
 # print(max(s3))  # TypeError: '<' not supported between instances of 'str' and 'int'
+
+# DICTIONARY DATA TYPE
+# It is used to store data in the form of key : value pairs (called items)
+# Syntax: {key: value, key: value}
+# Keys   → must be unique
+# Values → can be duplicate
+# Mutable → allows modification (add, update, delete items)
+
+# Ex 1 : Dictionary basics and operations
+
+# creating a dictionary
+d1 = {111: "dipti", 222: "riya", 333: "siya"}
+print(d1)            # prints dictionary
+print(type(d1))      # <class 'dict'>
+
+# duplicate keys are not allowed
+# old value is replaced by the new value
+d2 = {1: "Dipti", 2: "Pratiksha", 1: "Surabhi"}
+print(d2)            # key 1 holds "Surabhi"
+
+# creating an empty dictionary
+d3 = {}
+print(d3)
+print(type(d3))      # <class 'dict'>
+
+# inserting data into an empty dictionary
+d3[11] = "Dipti"
+d3[22] = "pratiksha"
+print(d3)
+
+# accessing dictionary methods
+d1 = {111: "dipti", 222: "swaraj", 333: "Ajinkya"}
+
+print(d1.keys())     # returns all keys
+print(d1.values())   # returns all values
+print(d1.items())    # returns key-value pairs
+
+# converting keys, values, items to list
+print(list(d1.keys()))
+print(list(d1.values()))
+print(list(d1.items()))
+
+# converting keys, values, items to tuple
+print(tuple(d1.keys()))
+print(tuple(d1.values()))
+print(tuple(d1.items()))
+
+# converting keys, values, items to set
+print(set(d1.keys()))
+print(set(d1.values()))
+print(set(d1.items()))
