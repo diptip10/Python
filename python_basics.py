@@ -1843,3 +1843,37 @@ print(basket1|basket2)  # Union: all unique items from both baskets
 print(basket1&basket2)  # Intersection: common items in both baskets
 print(basket1^basket2)  # Symmetric Difference: items in either basket but not in both
 
+# Ex 8 
+s1 = {x for x in range(10)}
+print(s1)
+
+s2 = {x*5 for x in range(3,10,4)}
+print(s2)
+
+s3 = {x+99 for x in range(10,20)}
+print(s3)
+
+# Ex 9 : set is mutable – removing data from a set
+# remove()  -> removes a specific element, raises KeyError if not found
+# pop()     -> removes and returns a random element
+# discard() -> removes a specific element, no error if not found
+# clear()   -> removes all elements from the set
+
+s1 = {10, 20, 30}
+s1.remove(10)      # removes 10 from the set
+# s1.remove(100)   # KeyError because 100 is not in the set
+print(s1)
+
+
+s1 = {10,20,30}
+s1.pop()   # removes one random element
+print(s1)
+
+s1 = {10,20,30}
+s1.discard(10)  # removes 10 from the set
+s1.discard(100)    # does nothing, no error
+print(s1)
+
+s2 = {10,20,30}
+s2.clear()  # clear() removes all elements from the set and makes it empty
+print(s2)
