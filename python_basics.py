@@ -1956,6 +1956,7 @@ d3[11] = "Dipti"
 d3[22] = "pratiksha"
 print(d3)
 
+# Ex 2
 # accessing dictionary methods
 d1 = {111: "dipti", 222: "swaraj", 333: "Ajinkya"}
 
@@ -1977,3 +1978,85 @@ print(tuple(d1.items()))
 print(set(d1.keys()))
 print(set(d1.values()))
 print(set(d1.items()))
+
+# Ex 3 : printing dictionary data using for loop
+
+d1 = {111: "dipti", 222: "swaraj", 333: "ajinkya"}
+
+# prints only keys
+for x in d1:
+    print(x)
+
+# prints keys with their values
+for x in d1:
+    print(x, d1[x])
+
+# prints keys and values using items()
+for x, y in d1.items():
+    print(x, y)
+
+# Ex 4 : Dictionary keys must be immutable
+# Allowed key types: int, float, string, tuple
+# Not allowed: list, set, dict (mutable types)
+
+# d1 = {[1,2]:"dipti", 222:"swaraj", 333:"supriya"}
+# TypeError: unhashable type: 'list' (list cannot be a key)
+
+d1 = {111: [1, 2, 3], 222: "dipti", 333: "ajinkya"}
+# Values can be mutable (like list)
+print(d1)
+
+# Ex 5 : reading data from dictionary
+# Access data using keys and get() method
+
+d1 = {111: "nikita", 222: "surabhi", 333: "pratiksha"}
+
+# accessing values using keys
+print(d1[111])
+print(d1[222])
+print(d1[333])
+# print(d1[1])   # KeyError if key does not exist
+
+# accessing values using get()
+print(d1.get(111))
+print(d1.get(222))
+print(d1.get(333))
+# print(d1.get(1))  # returns None (no KeyError)
+
+# Ex 6 : Dictionary operators and functions
+# id()        -> returns memory address of an object
+# is / is not -> compares memory location (identity comparison)
+# in / not in -> checks key availability in dictionary
+# == / !=     -> compares data (both keys and values)
+
+d1 = {111: "dipti", 222: "anu"}
+d2 = {333: "riya", 444: "siya"}
+d3 = d1
+d4 = {111: "dipri", 222: "anu"}
+
+# memory addresses
+print(id(d1))
+print(id(d2))
+print(id(d3))
+print(id(d4))
+
+# identity comparison
+print(d1 is d2)       # False (different objects)
+print(d1 is d3)       # True (same reference)
+print(d1 is d4)       # False
+print(d1 is not d2)   # True
+print(d1 is not d3)   # False
+
+# data comparison
+print(d1 == d2)       # False
+print(d1 == d3)       # True
+print(d1 == d4)       # False (value mismatch)
+print(d1 != d2)       # True
+print(d1 != d4)       # True
+
+# key membership check
+print(111 in d1)      # True
+print(11 in d1)       # False
+print(111 not in d1)  # False
+print(11 not in d1)   # True
+
