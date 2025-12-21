@@ -1877,3 +1877,52 @@ print(s1)
 s2 = {10,20,30}
 s2.clear()  # clear() removes all elements from the set and makes it empty
 print(s2)
+
+# Ex 10 : conversion process – list to set and set to list
+
+l1 = [10, 20, 30, 10, 20, 40, 10, 20]
+s = set(l1)          # converts list to set (removes duplicates)
+print(s)
+
+newlist = list(s)    # converts set back to list
+print(newlist)
+
+# Ex 11: Unpacking set data
+s1 = {10, 20.5, 'python'}
+
+# Unpacking set elements into variables (order is not guaranteed)
+a, b, c = s1
+
+# Print the data types of unpacked values
+print(type(a), type(b), type(c))
+
+s2 = {10, 20, 30}
+
+# Unpacking error example:
+# a, b = s2  
+# ValueError: too many values to unpack (expected 2)
+
+# Ex 12: Sorting a set (only homogeneous data types)
+s1 = {10, 3, 24, 1, 30}
+
+print(sorted(s1))   # Sort set in ascending order (returns a list)
+
+print(sorted(s1, reverse=True))   # Sort set in descending order
+
+print(len(s1))  # Length of the set (number of elements)
+
+# Ex 13: Finding minimum and maximum values in sets
+
+# Set with integers
+s1 = {10, 20, 30}
+print(min(s1))   # Smallest number
+print(max(s1))   # Largest number
+
+# Set with strings (lexicographical order)
+s2 = {"python", "language", "java"}
+print(min(s2))   # Alphabetically smallest string
+print(max(s2))   # Alphabetically largest string
+
+s3 = {10, "python"}   # Set with mixed data types
+# print(min(s3))
+# print(max(s3))  # TypeError: '<' not supported between instances of 'str' and 'int'
