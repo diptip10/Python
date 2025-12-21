@@ -2060,3 +2060,83 @@ print(11 in d1)       # False
 print(111 not in d1)  # False
 print(11 not in d1)   # True
 
+# Ex 7 : Creating dictionary using zip()
+
+# list to dictionary
+l1 = [1, 2, 3, 4]
+l2 = ["dipti", "nikita", "pratiksha", "surabhi"]
+x = zip(l1, l2)    # combine two lists into a dictionary
+d = dict(x)
+print(d)
+
+# tuple to dictionary
+t1 = (1, 2, 3, 4)
+t2 = ("dipti", "pratiksha", "surabhi", "nikita")
+x = zip(t1, t2)   # combine two tuples into a dictionary
+d = dict(x)
+print(d)
+
+# set to dictionary (order may vary because sets are unordered)
+s1 = {1, 2, 3, 4}
+s2 = {"dipti", "pratiksha", "surabhi", "nikita"}
+x = zip(s1, s2)     # combine two sets into a dictionary
+d = dict(x)
+print(d)
+
+# swapping keys and values using zip
+# In zip() the first iterable always provides the KEYS and the second iterable provides
+#  the VALUES when you convert it to a dictionary.
+t2 = (1, 2, 3, 4)
+t1 = ("dipti", "pratiksha", "surabhi", "nikita")
+x = zip(t1, t2)   # create dictionary by swapping
+d = dict(x)
+print(d)
+
+# Ex 8 : Dictionary unpacking
+
+# When unpacking a dictionary with multiple variables,
+# only KEYS are unpacked (not values)
+
+d1 = {1: "aaa", 2: "bbb", 3: "ccc"}
+a, b, c = d1        # unpacking keys
+print(a, b, c)
+
+# If only one variable is used,
+# the entire dictionary is assigned to that variable
+
+d2 = {1: "aaa"}
+a = d2
+print(a)
+
+# Ex 9 : Dictionary - modifications allowed
+
+d1 = {1: "aaa", 2: "bbb", 3: "ccc"}
+print(len(d1))         # number of items in dictionary
+
+print(d1.popitem())    # removes and returns last inserted key-value pair
+print(d1.pop(2))       # removes key 2 and returns its value
+# print(d1.pop(222))   # KeyError if key not found
+
+print(d1)              # remaining dictionary
+
+d1.clear()             # removes all items
+print(d1)              # empty dictionary
+
+# Ex 10 : Merging dictionaries
+
+d1 = {1: "aaa", 2: "bbb"}
+d2 = {3: "ccc", 4: "ddd"}
+
+# Method 1: update() - adds d2 items into d1
+d1.update(d2)
+print(d1)
+
+# Method 2: dictionary unpacking (**)
+d1 = {1: "aaa", 2: "bbb"}
+d2 = {3: "ccc", 4: "ddd"}
+
+# d3 = d1 + d2   # TypeError, cannot use + with dicts
+# The ** operator in Python is used for dictionary unpacking. In the context of dictionaries, 
+# it allows you to merge dictionaries or pass dictionary items as keyword arguments.
+x = {**d1, **d2}   # merges d1 and d2 into new dictionary
+print(x)
