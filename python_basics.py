@@ -2140,3 +2140,48 @@ d2 = {3: "ccc", 4: "ddd"}
 # it allows you to merge dictionaries or pass dictionary items as keyword arguments.
 x = {**d1, **d2}   # merges d1 and d2 into new dictionary
 print(x)
+
+# Ex 11: Sorting operations on dictionary
+
+d1 = {1:"aaa", 2:"bbb", 3:"ccc", 4:"ddd"}
+
+# Sort dictionary keys in ascending order
+print(sorted(d1.keys()))
+
+# Sort dictionary keys in descending order
+print(sorted(d1.keys(), reverse=True))
+
+# Sort dictionary values in ascending (alphabetical) order
+print(sorted(d1.values()))
+
+# Loop through dictionary using sorted keys
+for key in sorted(d1.keys()):
+    print("key=%d value=%s" % (key, d1[key]))
+
+# Ex 12: Dictionary value update
+
+d1 = {1: None, 2: "aaa", 3: "bbb", 4: "ccc"}
+print(d1)   # Print original dictionary
+
+d1[1] = "ddd"   # Update value of key 1 from None to "ddd"
+print(d1)   # Print updated dictionary
+
+# Ex 13: min() and max() on dictionary keys
+d1 = {1: "aaa", 2: "bbb", 3: "ccc", 4: "ddd"}
+
+# min() and max() return smallest and largest KEY (numeric comparison)
+print(min(d1))   # 1
+print(max(d1))   # 4
+
+d2 = {"aa": "dipti", "bb": "swaraj"}
+
+# min() and max() return smallest and largest KEY (alphabetical order)
+print(min(d2))   # "aa"
+print(max(d2))   # "bb"
+
+# Mixed key types (int and str)
+# Python cannot compare different data types
+# d3 = {111: "dipti", "aa": "pawar"}
+# print(min(d3))   # TypeError
+# print(max(d3))   # TypeError
+
