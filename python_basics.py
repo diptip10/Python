@@ -2295,3 +2295,90 @@ print(tuple(filter(lambda x: x == "aaa", l1)))
 # Store filtered result in a list
 l2 = list(filter(lambda x: x == "aaa", l1))
 print(l2)
+
+# Ex 5
+# map() is used to apply a function to every element of an iterable and return the result.
+# map() is used to perform operations on every element of the list
+
+l1 = [2, 45, 6, 3, 7]
+
+# Function to double each element
+def m1(x):
+    return x * 2
+
+# Using map() with normal function
+print(list(map(m1, l1)))
+
+# Using map() with lambda function
+print(list(map(lambda x: x * 2, l1)))
+
+# Ex 6: map() with string values
+
+# List of strings
+l1 = ["dipti", "nikita", "surabhi", "pratiksha"]
+
+# Function to append "world" to each string
+def m1(x):
+    return x + "world"
+
+# Using map() with normal function
+print(list(map(m1, l1)))
+
+# Using map() with lambda function
+print(list(map(lambda x: x + "world", l1)))
+
+# Convert mapped result into tuple
+print(tuple(map(lambda x: x + "world", l1)))
+
+# Ex 7: map() with multiple iterables
+l1 = [1, 2, 3, 4]
+l2 = [10, 20, 30, 40]
+l3 = [100, 200, 300, 400]
+
+# Add elements of l1 and l2 (index-wise)
+print(list(map(lambda x, y: x + y, l1, l2)))
+
+# Add elements of l1, l2, and l3 (index-wise)
+print(list(map(lambda x, y, z: x + y + z, l1, l2, l3)))
+
+# Ex 8: map() to find length of each word
+
+# Input string
+s = "hi bunny how are you"
+
+# Split string into words
+words = s.split()
+
+# Print each word
+for x in words:
+    print(x)
+
+# Find length of each word using map()
+print(list(map(lambda x: len(x), words)))
+
+# Ex 9: reduce() function
+# reduce() is used to perform computation on all elements and return a single value
+
+from functools import reduce
+
+l1 = [25, 34, 54, 23]
+
+# Sum using for loop
+total = 0
+for x in l1:
+    total = total + x
+print(total)
+
+# Sum using reduce() with lambda
+print(reduce(lambda x, y: x + y, l1))
+
+
+# Addition (sum) of numbers from 1 to 100 using reduce()
+
+from functools import reduce
+
+# range(1, 100) adds numbers from 1 to 99
+print(reduce(lambda x, y: x + y, range(1, 100)))
+
+# If you want sum from 1 to 100 (inclusive)
+print(reduce(lambda x, y: x + y, range(1, 101)))
