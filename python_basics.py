@@ -2382,3 +2382,168 @@ print(reduce(lambda x, y: x + y, range(1, 100)))
 
 # If you want sum from 1 to 100 (inclusive)
 print(reduce(lambda x, y: x + y, range(1, 101)))
+
+# CLASS CONCEPT
+# Class is a logical entity and blueprint for object creation
+# Object is a physical entity and occupies memory
+# Multiple objects can be created from a single class
+# In Python 3.x, all classes implicitly inherit from object
+
+# Ex 1: Checking whether classes are subclasses of object
+
+class myclass1:
+    pass        # class without explicitly mentioning parent
+
+class myclass2():
+    pass        # class with empty parentheses
+
+class myclass3(object):
+    pass        # class explicitly inheriting from object
+
+# issubclass() checks whether a class is derived from another class
+print(issubclass(myclass1, object))   # True → default inheritance in Python 3
+print(issubclass(myclass2, object))   # True → default inheritance in Python 3
+print(issubclass(myclass3, object))   # True → explicit inheritance
+
+# Ex 2
+# Class is a logical entity
+# Functions defined inside a class are called methods
+
+class myclass:
+    
+    def disp1(self):                   # self refers to the current object
+        print("good morning")
+    
+    def disp2(self, name):             # name is a parameter passed to the method
+        print("good evening :", name)
+
+# Creating object of the class
+c = myclass()
+
+# Calling methods using object reference
+c.disp1()              # calls disp1()
+c.disp2("dipti")       # calls disp2() with argument
+
+# Ex 3: Instance method and Static method
+
+class myclass():
+    
+    def m1(self):                 # Instance method; self refers to current object
+        print("instance method")
+    
+    @staticmethod                # Static method
+    def m2():                     # Does not use self or class data
+        print("static method")
+
+c = myclass()                     # Creating object of the class
+
+c.m1()                            # Calling instance method using object
+c.m2()                            # Calling static method using object
+
+# Example: Instance method and Static method behavior
+class myclass():
+
+    def m1(self):
+        # Instance method: self refers to the current object
+        print("instance method")
+
+    @staticmethod
+    def m2(self):
+        # Static method: 'self' here is just a normal parameter
+        # No object reference is passed automatically
+        print("static method")
+
+# Creating an object of the class
+c = myclass()
+
+# Calling instance method (object is passed automatically as self)
+c.m1()
+
+# Calling static method (argument is passed manually)
+myclass.m2("dipti")
+#---------------------
+# A function declared outside a class is called a function
+def greet():
+    print("Hello")
+
+# A function declared inside a class is called a method
+# Functionality may be same, but calling style is different
+class Demo:
+    def greet(self):
+        print("Hello")
+#-----------------------
+
+# Ex 4: Declaring variables inside the class
+# Variables declared inside the class and outside methods are called class variables
+# Inside methods, class variables can be accessed using self or class name
+# Outside the class, class variables should be accessed using the class name
+
+class MyClass:
+
+    a, b = 10, 20          # Class variables
+
+    def add(self):
+        # Accessing class variables using self
+        print(self.a + self.b)
+
+    def mul(self):
+        # Accessing class variables using self
+        print(self.a * self.b)
+
+
+# Creating object of the class
+c = MyClass()
+
+# Calling methods using object
+c.add()   
+c.mul()
+
+# Ex 5: Local variables, Class variables, and Global variables (different names)
+
+i, j = 100, 200   # Global variables (accessible everywhere in the program)
+
+class MyClass:
+    a, b = 10, 20   # Class variables (shared by all objects of the class)
+
+    def add(self, x, y):     # x, y → Local variables (method scope)
+        print(x + y)              # using local variables
+        print(self.a + self.b)    # Accessing class variables
+        print(i + j)               # Accessing global variables
+
+    def mul(self, x, y):       # x, y → Local variables (method scope)
+        print(x * y)              # using local variables
+        print(self.a * self.b)       # Accessing class variables
+        print(i * j)              # Accessing global variables
+
+
+# Creating object of the class
+c = MyClass()
+
+# Calling methods with arguments
+c.add(2, 3)
+c.mul(3, 4)
+
+# Ex 6: Local, Class, and Global variables with SAME names
+
+a, b = 100, 200          # Global variables
+
+class MyClass:
+
+    a, b = 10, 20        # Class variables
+
+    def add(self, a, b):               # a, b → Local variables (method parameters)
+        print(a + b)                     # using local variables
+        print(self.a + self.b)        # Accessing class variables
+        print(globals()['a'] + globals()['b'])    # Accessing global variables using globals()
+
+    def mul(self, a, b):       # a, b → Local variables (method parameters)
+        print(a * b)                     # using local variables
+        print(self.a * self.b)         # Accessing class variables
+        print(globals()['a'] * globals()['b'])      # Accessing global variables using globals()
+
+
+c = MyClass()    # Creating object of the class
+
+# Calling methods
+c.add(3, 2)
+c.mul(3, 4)
