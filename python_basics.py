@@ -2185,3 +2185,88 @@ print(max(d2))   # "bb"
 # print(min(d3))   # TypeError
 # print(max(d3))   # TypeError
 
+
+# LAMBDA, FILTER, MAP, REDUCE
+# A lambda function is an anonymous function in Python used to write small, one-line expressions.
+# It helps reduce code length and is commonly used with filter(), map(), and reduce().
+
+# Ex 1
+# Normal function with one argument
+def m1(x):
+    print(2 * x)
+
+m1(3)
+
+# Same operation using lambda function
+a = lambda x: x * 2
+print(a(3))
+
+# Ex 2: Lambda with two arguments
+# Normal function with two arguments
+def m1(x, y):
+    print(x * y)
+
+m1(2, 3)
+
+# Same logic using lambda function
+b = lambda x, y: x * y
+print(b(2, 3))
+
+# Ex 3: filter() function
+
+# filter() is used to filter elements from an iterable based on a condition.
+# It returns only those elements for which the function returns True.
+
+# List of numbers
+l1 = [2, 3, 4, 5]
+
+# Function to check even numbers
+def m1(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
+
+# Filter even numbers using normal function
+print(list(filter(m1, l1)))
+
+# Filter even numbers using lambda function
+print(list(filter(lambda x: x % 2 == 0, l1)))
+
+# Convert filtered result into tuple
+print(tuple(filter(lambda x: x % 2 == 0, l1)))
+
+# ---------------------------------------
+### other ways of filtering even numbers from the given list
+#1. Using List Comprehension (Most Common)
+even_no = [x for x in l1 if x%2 == 0]
+print(even_no)
+
+# 2. Using for loop
+even_num = [] 
+for x in l1:
+    if x%2 == 0:
+        print(even_num.append(x))
+
+print(even_num)
+
+# 3. Using set comprehension : use when unique values are required
+even_num = {x for x in l1 if x%2==0}
+print(even_num)
+
+# 4. Using generator expression
+even_nums = (x for x in l1 if x % 2 == 0)
+print(list(even_nums))
+
+# using while loop
+# Rarely used, but good for logic understanding
+l=[1,2,3,4]
+i = 0
+even_nums = []
+while i < len(l):
+    if l[i]%2 == 0 :
+        even_nums.append(l[i])
+    i=i+1
+
+print(even_nums)
+# -----------------------------------------------------------
