@@ -2270,3 +2270,28 @@ while i < len(l):
 
 print(even_nums)
 # -----------------------------------------------------------
+
+# Ex 4: filter() with string values
+
+# List containing duplicate strings
+l1 = ["aaa", "bbb", "aaa", "ddd"]
+
+# Function to check specific value
+def m1(x):
+    if x == "aaa":
+        return True
+    else:
+        return False
+
+# Filter values equal to "aaa" using normal function
+print(list(filter(m1, l1)))
+
+# Filter values equal to "aaa" using lambda function
+print(list(filter(lambda x: x == "aaa", l1)))
+
+# Convert filtered result into tuple
+print(tuple(filter(lambda x: x == "aaa", l1)))
+
+# Store filtered result in a list
+l2 = list(filter(lambda x: x == "aaa", l1))
+print(l2)
