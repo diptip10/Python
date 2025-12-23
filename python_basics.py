@@ -2547,3 +2547,112 @@ c = MyClass()    # Creating object of the class
 # Calling methods
 c.add(3, 2)
 c.mul(3, 4)
+
+# Ex 7 : For a single class, we can create multiple objects
+
+# Defining a class
+class MyClass:
+    def disp(self):              # Instance method
+        print("Good Morning")    # This method prints a message
+
+c1 = MyClass()     # Creating first object of MyClass
+c1.disp()          # Calling method using first object
+
+c2 = MyClass()    # Creating second object of MyClass
+c2.disp()         # Calling method using second object
+
+# Ex 8 : We can create objects in two ways
+# 1. Named object: Stored in a variable and can be reused.
+# 2. Nameless object: Not stored in a variable, used for one-time method call.
+#  Nameless objects are commonly used when the object is not needed again.
+
+# Defining a class
+class MyClass:
+    def disp(self):         # Instance method
+        print("Good Morning")       # This method prints a message
+
+c1 = MyClass()   # 1. Creating a named object
+c1.disp()       # Calling method using named object
+
+MyClass().disp() #Creating a nameless(anonymous)object Object is created and method is called immediately
+
+# Ex 9 : Printing memory address using id()
+# is / is not operators are used for memory comparison
+
+# Defining an empty class
+class MyClass:
+    pass
+
+
+# Creating objects
+c1 = MyClass()   # First object
+c2 = MyClass()   # Second object (different memory)
+c3 = c1          # c3 refers to the same object as c1
+
+
+# Printing memory addresses
+print(id(c1))    # Memory address of c1
+print(id(c2))    # Memory address of c2
+print(id(c3))    # Memory address of c3 (same as c1)
+
+
+# Memory comparison using 'is' operator
+print(c1 is c2)      # False → different objects (different memory)
+print(c1 is c3)      # True  → both refer to same object
+
+
+# Memory comparison using 'is not' operator
+print(c1 is not c2)  # True  → different memory locations
+print(c1 is not c3)  # False → same memory location
+
+# Ex 10
+# One object modifying a variable will affect only that object
+# The change will NOT reflect in another object
+# For every object, a separate instance-level copy can be created
+
+# Defining a class
+class MyClass:
+    name = "dipti"     # Class variable
+
+# Creating first object
+c1 = MyClass()
+print(c1.name)    # Accessing class variable using object    # Output: dipti
+# Modifying variable using c1
+c1.name = "siya"    # This creates an INSTANCE variable for c1 only
+
+c2 = MyClass() # Creating second object
+# Accessing name using c2
+print(c2.name)   # c2 still refers to the class variable     # Output: dipti
+
+# ---------------------
+# PYTHON CLASS CONCEPT
+# ---------------------
+# Main Difference between Constructor and Method:
+#
+# 1. Constructor (__init__):
+#    - Executed automatically when an object is created
+#    - Used to initialize object data
+#
+# 2. Method:
+#    - Executed only when it is explicitly called using the object
+# ---------------------
+
+# Example 1: Declaring a constructor inside a class
+
+class MyClass:
+    
+    # Constructor (no-argument constructor)
+    def __init__(self):
+        print("Zero-argument constructor called")
+    
+    # Normal method
+    def m1(self):
+        print("Good morning")
+
+
+# Object creation
+c = MyClass()      # Constructor is called automatically
+
+# Method call
+c.m1()             # Method is called using the object
+
