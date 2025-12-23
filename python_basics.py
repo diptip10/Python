@@ -2734,3 +2734,110 @@ class MyClass:
 # Constructor is executed automatically
 c = MyClass("Swaraj")
 
+# ---------------------
+# Ex 5: Conversion of Local Variables to Instance Variables
+# ---------------------
+# - Constructor parameters are local variables
+# - Using 'self', local variables can be converted into instance variables
+# - Instance variables can be accessed by all methods of the class
+
+class Operations:
+    
+    def __init__(self, val1, val2):      # val1 and val2 are local variables
+        print(val1)
+        print(val2)
+
+        # Converting local variables into instance variables
+        self.val1 = val1
+        self.val2 = val2
+
+    def add(self):
+        print(self.val1 + self.val2)    # Accessing instance variables
+
+    def mul(self):
+        print(self.val1 * self.val2)     # Accessing instance variables
+
+
+# Object creation
+o = Operations(3, 4)   # Constructor is executed automatically
+
+# Method calls
+o.add()
+o.mul()
+
+# ---------------------
+# Ex 6: Employee Class Example
+# ---------------------
+# - Constructor initializes employee details
+# - Local variables are converted into instance variables using 'self'
+# - Data is displayed using different string formatting techniques
+
+class Employee:
+    
+    def __init__(self, eid, ename, esal):
+        # Constructor parameters are local variables
+        # Converting local variables into instance variables
+        self.eid = eid
+        self.ename = ename
+        self.esal = esal
+
+    def display(self):
+        # Display using format() method
+        print("eid:{} ename:{} esal:{}".format(self.eid, self.ename, self.esal))
+        
+        # Display using % formatting
+        print("eid: %d ename: %s esal: %g" % (self.eid, self.ename, self.esal))
+
+
+# Object creation
+e = Employee(111, "Dipti", 20000)
+
+# Method call
+e.display()
+
+# ---------------------
+# Ex 7: __str__() Method in Python
+# ---------------------
+# __str__() is executed automatically when we print
+# the reference variable of an object.
+#
+# - __str__() must always return a STRING
+
+
+
+# Case 1: No __str__() method
+# Output will be the object's memory address
+class MyClass:
+    pass
+
+c = MyClass()
+print(c)
+
+
+# Case 2: __str__() returns a string
+class MyClass:
+    def __str__(self):
+        return "python"
+
+c = MyClass()
+print(c)
+
+
+# Case 3: __str__() returns a non-string (int)
+# This will raise a TypeError
+class MyClass:
+    def __str__(self):
+        return 10      #  Invalid return type
+
+# c = MyClass()
+# print(c)
+
+
+# Case 4: __str__() does not return anything
+# This will raise a TypeError because return value is None
+class MyClass:
+    def __str__(self):
+        print("Dipti")     #  No return statement
+
+# c = MyClass()
+# print(c)
