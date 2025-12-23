@@ -2656,3 +2656,81 @@ c = MyClass()      # Constructor is called automatically
 # Method call
 c.m1()             # Method is called using the object
 
+
+# Ex 2: Local Variable and Class (Instance) Variable
+# Local Variables:
+# - Declared inside a method
+# - Can be used only within that method
+#
+# Class (Instance) Variables:
+# - Created using self
+# - Can be accessed by all methods of the class
+
+class MyClass:
+    
+    def values(self, val1, val2):
+        # val1 and val2 are local variables
+        print(val1)
+        print(val2)
+
+        # Converting local variables into instance variables
+        self.val1 = val1
+        self.val2 = val2
+
+    def add(self):
+        # Accessing instance variables
+        print(self.val1 + self.val2)
+    
+    def mul(self):
+        # Accessing instance variables
+        print(self.val1 * self.val2)
+
+
+# Object creation
+c = MyClass()
+
+# Calling methods
+c.values(2, 3)
+c.add()
+c.mul()
+
+# Ex 3: Calling methods using self
+
+# - A method of a class can call another method of the same class
+#   using the 'self' keyword.
+# - 'self' represents the current object.
+
+class MyClass:
+    
+    def m1(self):
+        print("m1 method")
+        self.m2(10)            # Calling another method of the same class using self
+    
+    def m2(self, a):
+        print("m2 method:", a)
+
+c = MyClass()    # Object creation
+c.m1()         # Calling m1() method
+
+# ---------------------
+# Ex 4: Constructor with Argument
+# ---------------------
+# - A constructor can accept arguments
+# - Local variables are passed as parameters to the constructor
+# - Class variables are accessed using 'self'
+# - Constructor is executed automatically when an object is created
+
+class MyClass:
+    
+    name = "Dipti"      # Class variable
+
+    def __init__(self, name):   # Constructor with argument (local variable)
+        print("Good morning:", name)        # Printing local variable
+        print("Good evening:", self.name)   # Accessing class variable using self
+
+
+# Object creation
+# While creating the object, argument must be passed
+# Constructor is executed automatically
+c = MyClass("Swaraj")
+
