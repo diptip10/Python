@@ -2841,3 +2841,108 @@ class MyClass:
 
 # c = MyClass()
 # print(c)
+
+# Ex 8
+# ---------------------
+# Example: Using __str__() in Employee Class
+# ---------------------
+# - __str__() is used to define a user-friendly
+#   string representation of an object
+# - It is executed automatically when we print
+#   the reference variable
+
+class Employee:
+    
+    def __init__(self, eid, ename, esal):      # Constructor parameters are local variables
+        # Converting local variables into instance variables
+        self.eid = eid
+        self.ename = ename
+        self.esal = esal
+
+    def __str__(self):
+        # Must return a string
+        return "eid:{} ename:{} esal:{}".format(self.eid, self.ename, self.esal)
+
+
+# Object creation
+e1 = Employee(111, "Dipti", 20000)
+print(e1)   # Calls __str__() automatically
+
+e2 = Employee(222, "Nikita", 30000)
+print(e2)   # Calls __str__() automatically
+
+# ---------------------
+# Special Methods in Python
+# ---------------------
+# - Constructor (__init__):
+#   Executed automatically during object creation.
+#
+# - __str__():
+#   Executed when we print the reference variable of an object.
+#   It must return a string.
+#
+# - __del__():
+#   Executed automatically when an object is destroyed.
+#   Used for cleanup activities.
+# ---------------------
+
+# Ex 9: __del__() Method (Destructor)
+# - __del__() is executed automatically when an object is destroyed
+# - Used to release resources such as memory, files, or database connections
+
+class MyClass:
+    
+    def __del__(self):
+        print("Object destroyed...")
+
+
+# Object creation
+c1 = MyClass()
+c2 = MyClass()
+
+# Destroying objects explicitly
+del c1
+del c2
+
+# Ex 10: Multiple Reference Variables for the Same Object
+
+# - An object can have multiple reference variables
+# - __del__() is executed only when the reference count becomes ZERO
+
+class MyClass:
+    
+    def __del__(self):
+        print("Object destroyed...")
+
+
+# Object creation
+c1 = MyClass()
+
+# Multiple references pointing to the same object
+c2 = c1
+c3 = c1
+
+# Deleting references
+del c1   # Object NOT destroyed (still referenced by c2 and c3)
+del c2   # Object NOT destroyed (still referenced by c3)
+del c3   # Reference count becomes zero → __del__() executed
+
+# Case 1: Exception inside __del__() method
+# - If an exception occurs inside __del__(),
+#   Python does NOT propagate the exception
+# - Instead, it prints: "Exception ignored in: <function __del__>"
+
+class MyClass:
+    
+    def __del__(self):
+        print("Object destroyed...")
+        
+        # Exception inside destructor
+        print(10 / 0)   # ZeroDivisionError (ignored)
+
+
+# Object creation
+c1 = MyClass()
+
+# Destroying object
+del c1
