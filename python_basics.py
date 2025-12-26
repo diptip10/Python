@@ -3025,3 +3025,60 @@ c.m2()   # accessing Child class method
 # using a child class reference, we can access both
 # parent and child class properties.
 
+# Ex 3: Calling Parent Class Method using super()
+
+# super() is used to call the methods of the parent (super) class
+# from the child class.
+#
+# Requirement:
+# While executing the child class method (m2),
+# call the parent class method (m1).
+
+class Parent:
+    def m1(self):      # Parent class method
+        print("Parent m1 method")
+
+
+class Child(Parent):
+    def m2(self):
+        super().m1()        # Calling parent class method using super()
+        
+        print("Child m2 method")       # Child class method
+
+
+# Creating object of Child class
+# Child class object is recommended because it can access
+# both parent and child class methods
+c = Child()
+c.m2()
+
+
+# Ex 4 : Super Class Variables
+
+# Variable declaration in Parent and Child classes
+#
+# Rule:
+# When we access variables using 'self',
+# Python first checks the Child class.
+# If the variable is not found in the Child class,
+# it then checks the Parent class.
+
+class Parent:
+    a, b = 10, 20      # Parent class variables
+
+
+class Child(Parent):
+    x, y = 100, 200        # Child class variables
+
+    def add(self, i, j):   # Local variables
+        print(i + j)
+        print(self.x + self.y)      # Accessing Child class variables using self
+
+        # Accessing Parent class variables using self
+        # (not found in child, so taken from parent)
+        print(self.a + self.b)
+
+
+# Creating object of Child class
+c = Child()
+c.add(1000, 2000)
