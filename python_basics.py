@@ -2946,3 +2946,82 @@ c1 = MyClass()
 
 # Destroying object
 del c1
+
+# OOPS
+# Class (Logical Entity) vs Object (Physical Entity)
+
+# Class
+# A class is a logical entity (blueprint) used to create objects.
+# It does not occupy memory.
+
+# Object
+# An object is a physical entity (instance of a class).
+# It occupies memory.
+
+# Example 1
+# case 1: Python 3.x
+# In Python 3.x, every class is by default a child of 'object'
+
+class MyClass1:
+    pass
+
+class MyClass2:
+    pass
+
+class MyClass3(object):
+    pass
+
+# issubclass() checks whether a class is derived from another class
+print(issubclass(MyClass1, object))   # True
+print(issubclass(MyClass2, object))   # True
+print(issubclass(MyClass3, object))   # True
+
+# case 2: Python 2.7
+# In Python 2.7, a class is NOT a child of 'object' by default
+# unless it explicitly inherits from 'object'
+
+## ============================================================
+# 4 BUILDING BLOCKS OF OOPS
+# ============================================================
+# 1. Inheritance
+# 2. Polymorphism
+# 3. Encapsulation
+# 4. Abstraction
+
+
+# 1. Inheritance
+
+# Inheritance is the process of creating a new class
+# by using the properties of an existing class.
+#
+# OR
+#
+# The process of acquiring the properties from one class
+# to another class is called inheritance.
+
+# Example 2 – Single Inheritance
+
+class Parent:
+    def m1(self):
+        print("Parent m1 method")
+
+
+class Child(Parent):
+    def m2(self):
+        print("Child m2 method")
+
+
+# Creating object of Parent class
+p = Parent()
+p.m1()
+
+# Creating object of Child class (recommended)
+c = Child()
+c.m1()   # accessing Parent class method
+c.m2()   # accessing Child class method
+
+# Note:
+# Child class object creation is recommended because
+# using a child class reference, we can access both
+# parent and child class properties.
+
