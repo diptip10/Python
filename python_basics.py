@@ -3224,3 +3224,167 @@ class Child(Parent):
 
 
 c = Child()
+
+# TYPES OF INHERITANCE
+# 1. single : one parent class contains one child class
+# 2. multilevel
+# 3. multiple
+# 4. hierarchical
+# 5. hybrid
+
+## -- 1. single inheritance : One child class inherits from one parent class.
+class Parent:
+    def show(self):
+        print("Parent class method")
+
+class Child(Parent):  # Child inherits Parent
+    pass
+
+c = Child()
+c.show()
+# Ex
+# Parent class
+class Parent:
+    def show_parent(self):
+        print("This is parent class method")
+
+# Child class inheriting Parent
+class Child(Parent):
+    def show_child(self):
+        print("This is child class method")
+
+# Creating object of Child class
+c = Child()
+
+# Child can access both parent and child methods
+c.show_parent()   # inherited from Parent
+c.show_child()    # own method
+
+
+## -- 2. multilevel inheritace : A child class inherits from a parent class,
+#  and another child inherits from that child.
+class A:
+    pass
+class B(A):
+    pass
+class c(B):
+    pass
+# Ex
+# Grandparent class
+class GrandParent:
+    def gp_method(self):
+        print("Grandparent class method")
+
+# Parent class inherits GrandParent
+class Parent(GrandParent):
+    def p_method(self):
+        print("Parent class method")
+
+# Child class inherits Parent
+class Child(Parent):
+    def c_method(self):
+        print("Child class method")
+
+# Creating object of Child class
+c = Child()
+
+# Child can access all methods
+c.gp_method()   # from GrandParent
+c.p_method()    # from Parent
+c.c_method()    # from Child
+
+
+##  -- 3. Multiple Inheritance
+# A child class inherits from more than one parent class
+class A:
+    pass
+class B:
+    pass
+class C(A,B):
+    pass
+
+# Ex
+
+class A:
+    def method_a(self):
+        print("Method from class A")
+
+class B:
+    def method_b(self):
+        print("Method from class B")
+
+# Child class inherits from both A and B
+class C(A, B):
+    pass
+
+# Creating object of child class
+obj = C()
+
+# Child can access methods of both parent classes
+obj.method_a()
+obj.method_b()
+
+## 4. hierarchial inheritance : one parent contains multiple child
+class A:
+    pass
+class B(A):
+    pass
+class C(A):
+    pass
+
+# Ex
+class A:
+    def show_parent(self):
+        print("This is parent class method")
+
+# Child class B inherits from A
+class B(A):
+    def show_b(self):
+        print("This is B class method")
+
+# Child class C inherits from A
+class C(A):
+    def show_c(self):
+        print("This is C class method")
+
+# Creating objects
+b = B()
+c = C()
+
+# Accessing parent and child methods
+b.show_parent()  # inherited from A
+b.show_b()       # own method
+
+c.show_parent()  # inherited from A
+c.show_c()       # own method
+## -- 4. Hybrid Inheritance
+# Combination of multiple and hierarchical inheritance
+
+# Base class
+class A:
+    def show_a(self):
+        print("Method from class A")
+
+# Parent class B inherits A
+class B(A):
+    def show_b(self):
+        print("Method from class B")
+
+# Parent class C inherits A
+class C(A):
+    def show_c(self):
+        print("Method from class C")
+
+# Child class D inherits from B and C (multiple inheritance)
+class D(B, C):
+    def show_d(self):
+        print("Method from class D")
+
+# Creating object of D
+d = D()
+
+# Accessing methods from all parent classes
+d.show_a()   # from A
+d.show_b()   # from B
+d.show_c()   # from C
+d.show_d()   # own method
