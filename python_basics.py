@@ -3082,3 +3082,145 @@ class Child(Parent):
 # Creating object of Child class
 c = Child()
 c.add(1000, 2000)
+
+# Example 5: Variables with the same names in Parent and Child classes
+
+# Case 1: Accessing variables using self
+
+class Parent:
+    # Class variables of Parent
+    a, b = 10, 20
+
+
+class Child(Parent):
+    # Class variables of Child (same names as Parent)
+    a, b = 100, 200
+
+    def add(self, a, b):
+        # Local variables (method parameters)
+        print(a + b)              # Uses local variables → 1000 + 2000 = 3000
+
+        # Accessing class variables using self
+        # Priority:
+        # 1. Child class variables
+        # 2. Parent class variables (if not found in Child)
+        print(self.a + self.b)    # Uses Child.a and Child.b → 100 + 200 = 300
+
+        # Repeated to show consistent behavior
+        print(self.a + self.b)
+
+
+# Object creation
+c = Child()
+c.add(1000, 2000)
+
+# Case 2: Accessing Parent class variables using super()
+
+class Parent:
+    # Class variables of Parent
+    a, b = 10, 20
+
+
+class Child(Parent):
+    # Class variables of Child
+    a, b = 100, 200
+
+    def add(self, a, b):
+        # Local variables
+        print(a + b)               # 1000 + 2000 = 3000
+
+        # Accessing Child class variables using self
+        print(self.a + self.b)     # 100 + 200 = 300
+
+        # Accessing Parent class variables using super()
+        print(super().a + super().b)  # 10 + 20 = 30
+
+
+# Object creation
+c = Child()
+c.add(1000, 2000)
+
+# Case 3: Local, Child, Parent, and Global variables
+
+a, b = 1, 2   # Global variables
+
+class Parent:
+    a, b = 10, 20  # Parent class variables
+
+class Child(Parent):
+    a, b = 100, 200  # Child class variables
+
+    def add(self, a, b):
+        print(a + b)                       # Local variables
+        print(self.a + self.b)             # Child class variables
+        print(super().a + super().b)       # Parent class variables
+        print(globals()['a'] + globals()['b'])  # Global variables
+
+c = Child()
+c.add(1000, 2000)
+
+# Ex 6
+# Case 1:
+# If the child class does not have its own constructor,
+# the parent class constructor is executed automatically.
+
+class Parent:
+    def __init__(self):
+        print("Parent class constructor")
+
+
+class Child(Parent):
+    pass
+
+
+c = Child()
+
+
+# Case 2:
+# If the child class defines its own constructor,
+# the parent constructor is NOT executed automatically.
+
+class Parent:
+    def __init__(self):
+        print("Parent class constructor")
+
+
+class Child(Parent):
+    def __init__(self):
+        print("Child class constructor")
+
+
+c = Child()
+
+
+# case3 : while executing child class we want to call parent class cons
+# to call the parent class cons super() keyword is required
+
+class parent():
+    def __init__(self,name):
+        print("parent class cons: ", name)
+
+class child(parent):
+    def __init__(self):
+        super().__init__("dipti")
+        print("child class cons")
+
+c = child()
+
+# Case 4:
+# Parent constructor can also be called using the class name.
+# When using the class name, 'self' must be passed explicitly.
+
+class Parent:
+    def __init__(self, name):
+        print("Parent class constructor:", name)
+
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__("Dipti")          # Using super()
+        Parent.__init__(self, "Anu")       # Using class name
+        print("Child class constructor")
+
+
+c = Child()
