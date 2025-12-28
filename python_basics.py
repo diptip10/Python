@@ -3388,3 +3388,54 @@ d.show_a()   # from A
 d.show_b()   # from B
 d.show_c()   # from C
 d.show_d()   # own method
+
+# Ex 7
+# Multilevel Inheritance
+# A → B → C
+
+class A:
+    def m1(self):
+        print("m1 method")   # method of class A
+
+class B(A):
+    def m2(self):
+        print("m2 method")   # method of class B
+
+class C(B):
+    def m3(self):
+        print("m3 method")   # method of class C
+
+# Creating object of class C
+c = C()
+
+# Accessing methods from all levels
+c.m1()   # inherited from class A
+c.m2()   # inherited from class B
+c.m3()   # own method
+
+# Ex 8 : Hierarchical Inheritance
+# One parent class (vehicle) with multiple child classes (car, plane)
+
+class vehicle:
+    def disp1(self):
+        print("vehicle info")   # parent class method
+
+class car(vehicle):
+    def disp2(self):
+        print("car info")       # child class method
+
+class plane(vehicle):
+    def disp3(self):
+        print("plane info")     # child class method
+
+# Creating objects
+v = vehicle()
+v.disp1()     # access parent method
+
+c = car()
+c.disp1()     # inherited from vehicle
+c.disp2()     # own method
+
+p = plane()
+p.disp1()     # inherited from vehicle
+p.disp3()     # own method
