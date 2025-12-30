@@ -3537,3 +3537,65 @@ print(isinstance(c, child))     # True → c is an object of child
 print(isinstance(c, parent))    # True → child IS-A parent
 print(isinstance(c, object))    # True → every class inherits from object
 print(isinstance(p, object))    # True → parent also inherits from object
+
+
+# POLYMORPHISM
+# One functionality with different behaviors
+# Ability to appear in more than one form
+
+# Ex 1 : Variable Overriding
+# If a variable is overridden, child class value is used
+
+class Parent:
+    name = "dipti"
+
+class Child(Parent):
+    name = "swaraj"   # overriding parent variable
+
+c = Child()
+print(c.name)        # Output: swaraj
+
+# Variable Inheritance (No Overriding)
+# If child does not override, parent variable is used
+class Parent:
+    name = "dipti"
+
+class Child(Parent):
+    pass
+
+c = Child()
+print(c.name)        # Output: dipti
+
+# Ex 2:
+# METHOD OVERRIDING
+# Child class provides its own implementation
+# of the parent class method
+
+# Case 1: Method Overriding
+# Child method is executed
+
+class Parent:
+    def mrg(self):
+        print("Marriage color is Black")
+
+class Child(Parent):
+    def mrg(self):
+        print("Marriage color is Red")   # overridden method
+
+c = Child()
+c.mrg()        # Output: Marriage color is Red
+
+
+# Case 2: No Overriding
+# Child uses parent class method
+
+class Parent:
+    def mrg(self):
+        print("Black girl")
+
+class Child(Parent):
+    pass        # no overriding
+
+c = Child()
+c.mrg()        # Output: Black girl
+
