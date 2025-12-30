@@ -3439,3 +3439,101 @@ c.disp2()     # own method
 p = plane()
 p.disp1()     # inherited from vehicle
 p.disp3()     # own method
+
+# Ex 9 : Multiple Inheritance
+# Child class inherits from multiple parent classes
+
+class Parent1:
+    def m1(self):
+        print("parent1 m1 method")   # method of Parent1
+
+class Parent2:
+    def m2(self):
+        print("parent2 m2 method")   # method of Parent2
+
+# Child class inherits from Parent1 and Parent2
+class Child(Parent1, Parent2):
+    def m3(self):
+        print("child m3 method")     # child class method
+
+# Creating object of Child
+c = Child()
+
+# Accessing methods from all classes
+c.m1()   # inherited from Parent1
+c.m2()   # inherited from Parent2
+c.m3()   # own method
+
+# Ex 10 : Demonstrating different ways to initialize parent class variables
+
+class person:
+    def __init__(self, first, last):
+        self.first = first   # initialize first name
+        self.last = last     # initialize last name
+        
+class emp(person):
+    def __init__(self, first, last, id):
+
+        # # Method 1: Directly assigning parent class variables (not recommended)
+        # self.first = first
+        # self.last = last
+        # self.id = id
+
+        # Method 2: Using super() to call parent class constructor (recommended)
+        super().__init__(first, last)
+        self.id = id         # child class variable
+
+        # # Method 3: Calling parent class constructor using class name (allowed but not recommended)
+        # person.__init__(self, first, last)
+        # self.id = id  
+
+    def disp(self):
+        # display employee details
+        print("emp id = {} emp first name = {} emp last name = {}".format(
+            self.id, self.first, self.last))
+
+e1 = emp("dipti", "pawar", 111)
+e1.disp()
+
+e2 = emp("swaraj", "pawar", 222)
+e2.disp()
+
+# Ex 11 : Method overriding using __str__()
+
+class person:
+    def __init__(self, first, last):     # local variables
+        self.first = first               # instance variable
+        self.last = last
+
+class emp(person):
+    def __init__(self, first, last, id): # local variables
+        person.__init__(self, first, last)  # calling parent class constructor
+        self.id = id                       # child class instance variable
+
+    def __str__(self):
+        # overriding __str__() to return object data as string
+        return "emp_id = {} emp first name = {} emp last name = {}".format(
+            self.id, self.first, self.last)
+    
+e1 = emp("dipti", "pawar", 111)
+print(e1)   # calls overridden __str__() method
+
+e2 = emp("nikita", "pawar", 222)
+print(e2)   # calls overridden __str__() method
+
+# Ex 12 : isinstance() with inheritance
+
+class parent:
+    pass
+
+class child(parent):
+    pass
+
+p = parent()   # creating parent class object
+c = child()    # creating child class object
+
+print(isinstance(p, parent))    # True → p is an object of parent
+print(isinstance(c, child))     # True → c is an object of child
+print(isinstance(c, parent))    # True → child IS-A parent
+print(isinstance(c, object))    # True → every class inherits from object
+print(isinstance(p, object))    # True → parent also inherits from object
