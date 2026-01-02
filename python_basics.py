@@ -3665,3 +3665,30 @@ splender = Splender()
 # Python calls the appropriate speed() method at runtime
 speed_test(unicorn)
 speed_test(splender)
+
+"""
+3 . Encapsulation:
+The process of binding data (variables) and methods into a single unit (class).
+In Python, private members are created using double underscore (__).
+"""
+
+# Ex 1: Private Variable Example
+
+class A:
+    # Private variable (cannot be accessed directly outside the class)
+    __a = 10
+
+    # Public method to access private variable
+    def disp(self):
+        print(self.__a)
+
+
+# Creating object of class A
+obj = A()
+
+# Accessing private variable using class method
+obj.disp()
+
+# Direct access to private variable is not allowed
+# print(obj.__a)   # AttributeError
+
