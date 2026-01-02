@@ -3599,3 +3599,69 @@ class Child(Parent):
 c = Child()
 c.mrg()        # Output: Black girl
 
+class Parrot:
+    # Method to describe flying behavior
+    def fly(self):
+        print("Parrot can fly")
+
+    # Method to describe swimming behavior
+    def swim(self):
+        print("Parrot can't swim")
+
+# Ex 3
+
+# Penguin class
+class Penguin:
+    # Method to describe flying behavior
+    def fly(self):
+        print("Penguin can't fly")
+
+    # Method to describe swimming behavior
+    def swim(self):
+        print("Penguin can swim")
+
+
+# Common interface function
+# This function works with any object that has a fly() method
+def flying_test(bird):
+    bird.fly()
+
+
+# Creating objects of different classes
+parrot = Parrot()
+penguin = Penguin()
+
+# Passing different objects to the same function
+# Python decides which fly() method to call at runtime
+flying_test(parrot)
+flying_test(penguin)
+
+# Ex 4 : 
+# Unicorn class
+class Unicorn:
+    # Method to display speed of unicorn
+    def speed(self):
+        print("Unicorn speed is 250 kmph")
+
+
+# Splender class
+class Splender:
+    # Method to display speed of splender bike
+    def speed(self):
+        print("Splender speed is 100 kmph")
+
+
+# Common interface function
+# This function accepts any object that has a speed() method
+def speed_test(vehicle):
+    vehicle.speed()
+
+
+# Creating objects of different classes
+unicorn = Unicorn()
+splender = Splender()
+
+# Passing different objects to the same function
+# Python calls the appropriate speed() method at runtime
+speed_test(unicorn)
+speed_test(splender)
