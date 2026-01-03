@@ -3784,3 +3784,154 @@ b.mul()
 
 # Note:
 # 'a' is a class variable, so it is accessed using 'self'
+
+# ABSTRACTION
+# Abstraction is the process of hiding implementation details
+# and showing only essential services (functionalities) to the user.
+#
+# In Python, abstraction is achieved using:
+# 1. Abstract Classes
+# 2. Abstract Methods
+#
+# ABC (Abstract Base Class) is a predefined abstract class
+# present in the 'abc' module.
+#
+# Rules of Abstract Class:
+# - An abstract class must inherit from ABC.
+# - It can contain abstract methods (method declarations).
+# - An abstract class object cannot be created.
+# - A child class must implement all abstract methods,
+#   otherwise it will also be treated as an abstract class.
+
+from abc import ABC, abstractmethod
+
+# Abstract class
+class A(ABC):
+
+    @abstractmethod
+    def disp(self):
+        pass    # abstract method (no implementation)
+
+# Object creation is not possible for abstract classes
+# a = A()     # TypeError: Can't instantiate abstract class A
+
+# Ex 1 : 
+from abc import ABC, abstractmethod
+# Abstract class
+class A(ABC):
+
+    @abstractmethod
+    def disp(self):
+        pass    # abstract method (no implementation)
+
+# Child class implementing abstract method
+class B(A):
+
+    def disp(self):
+        print("Good Morning")
+
+# Object creation
+# a = A()   # TypeError: Can't instantiate abstract class A :(class A is abstract class)
+b = B()
+b.disp()
+
+# To make a class an abstract class, it must inherit from the ABC class
+# and it must contain at least one abstract method.
+#
+# To define an abstract method, we use the @abstractmethod decorator.
+
+
+#   Abstract method:
+# - Forces all child classes to implement eat()
+# - Ensures consistency across subclasses
+# - Prevents object creation of Person class
+# Ex 2 :
+from abc import ABC, abstractmethod
+# Abstract class
+class Person(ABC):
+
+    @abstractmethod
+    def eat(self):
+        pass    # abstract method
+
+# Child class Siya
+class Siya(Person):
+
+    def eat(self):
+        print("3 idly")   # implementation
+
+# Child class Piya
+class Piya(Person):
+
+    def eat(self):
+        print("4 idly")   # implementation
+
+s = Siya()   # object of Siya
+s.eat()
+
+p = Piya()   # object of Piya
+p.eat()
+
+# Ex 3 :
+from abc import ABC, abstractmethod
+
+# Abstract class with two abstract methods
+class A(ABC):
+    @abstractmethod
+    def disp1(self):
+        pass    # abstract method 1
+
+    @abstractmethod
+    def disp2(self):
+        pass    # abstract method 2
+
+# Partially implemented child class (still abstract)
+class B(A):
+    def disp1(self):
+        print("Good Morning")   # implementation of disp1
+
+# Child class completing all abstract methods
+class Anu(B):
+
+    def disp2(self):
+        print("Good Evening")   # implementation of disp2
+
+# Object creation is possible only after full implementation
+a = Anu()
+a.disp1()
+a.disp2()
+
+# Object creation is NOT possible for incomplete implementation
+# b = B()   # TypeError: Can't instantiate abstract class B
+
+# We can create any number of child classes, but all abstract methods
+# must be fully implemented to allow object creation.
+
+# Ex 4 : 
+from abc import ABC, abstractmethod
+# Abstract Base Class
+class A(ABC):
+    def __init__(self, value):
+        self.value = value   # common data member
+
+    @abstractmethod
+    def disp(self):
+        pass    # abstract method (must be implemented by child classes)
+
+# Child class implementing the abstract method
+class Add(A):
+    def disp(self):
+        print(10 + self.value)   # addition operation
+
+# Another child class implementing the abstract method
+class Mul(A):
+    def disp(self):
+        print(10 * self.value)   # multiplication operation
+
+# Object creation is allowed because abstract method is fully implemented
+a = Add(5)
+a.disp()     # Output: 15
+
+m = Mul(5)
+m.disp()     # Output: 50
+
