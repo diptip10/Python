@@ -3666,14 +3666,13 @@ splender = Splender()
 speed_test(unicorn)
 speed_test(splender)
 
-"""
-3 . Encapsulation:
-The process of binding data (variables) and methods into a single unit (class).
-In Python, private members are created using double underscore (__).
-"""
+# 3 . Encapsulation is the process of binding data (variables) and methods into a single unit (class)
+#  and restricting direct access to some of the object's components.
+
+# In Python, private members are created using double underscore (__).
 
 # Ex 1: Private Variable Example
-
+# Note: Private variables can be accessed only inside the class.
 class A:
     # Private variable (cannot be accessed directly outside the class)
     __a = 10
@@ -3689,6 +3688,99 @@ obj = A()
 # Accessing private variable using class method
 obj.disp()
 
-# Direct access to private variable is not allowed
+# Direct access is NOT allowed
 # print(obj.__a)   # AttributeError
 
+# Ex 2: Encapsulation – Private Methods
+# Note: Private methods are used for internal class operations only.
+class MyClass:
+    # Private method
+    def __disp1(self):
+        print("This is a private method")
+
+    # Public method calling private method
+    def disp2(self):
+        print("disp2 is calling disp1")
+        self.__disp1()
+
+
+# Creating object
+c = MyClass()
+
+# Calling public method
+c.disp2()
+
+# Direct access is NOT allowed
+# c.__disp1()   # AttributeError
+
+
+# Private variables cannot be accessed directly, 
+# but they can be read or modified indirectly using getter and setter methods.
+# (this is indirect access)
+# setters - to set the Data
+# getters -   to get the data
+
+# Ex 3 : to private variables we cannot do the direct modifications but we can do the modifications
+# with the help of the get and set methods(indirect approach)
+class emp:
+    __eid = 111
+    def seteid (self,eid):
+        self.__eid = eid
+    
+    def geteid(self):
+        return self.__eid
+
+e = emp()
+print(e.__eid())
+print(e.geteid())
+
+e.seteid(222)
+print(e.geteid())
+
+# Ex 4 :  Object Created Multiple Times
+# Each method creates a new object of class A,
+# which is inefficient and unnecessary
+
+class A:
+    num1, num2 = 100, 200
+
+class B:
+    def add(self):
+        a = A()   # object created every time method is called
+        print(a.num1 + a.num2)
+
+    def mul(self):
+        a = A()   # object created again
+        print(a.num1 * a.num2)
+
+
+# Creating object of class B
+b = B()
+b.add()
+b.mul()
+
+
+# Ex 5 : Solution – Create Object Only Once
+# Object of class A is created at class level
+# and reused by all methods of class B
+
+class A:
+    num1, num2 = 100, 200
+
+class B:
+    a = A()   # class-level object (created once)
+
+    def add(self):
+        print(self.a.num1 + self.a.num2)
+
+    def mul(self):
+        print(self.a.num1 * self.a.num2)
+
+
+# Creating object of class B
+b = B()
+b.add()
+b.mul()
+
+# Note:
+# 'a' is a class variable, so it is accessed using 'self'
