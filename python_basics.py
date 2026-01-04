@@ -4235,3 +4235,60 @@ def m2():
 import first
 print(dir(first))    # shows function names: m1, m2
 
+# The math module provides mathematical functions and constants.
+# Importing math module
+import math
+
+# dir() is used to list all functions and constants present in the module
+content = dir(math)
+print(content)
+
+import math
+
+# ceil() returns the smallest integer greater than or equal to the number
+print(math.ceil(30.3))      # Output: 31
+
+# fabs() returns the absolute value as a float
+print(math.fabs(10))        # Output: 10.0
+
+# factorial() returns the factorial of a number
+print(math.factorial(4))    # Output: 24
+
+# floor() returns the largest integer less than or equal to the number
+print(math.floor(30.9))     # Output: 30
+
+# pow() returns x raised to the power y
+print(math.pow(3, 4))       # Output: 81.0
+
+# sqrt() returns the square root
+print(math.sqrt(4))         # Output: 2.0
+
+# sin() returns sine of the angle (in radians)
+print(math.sin(90))         # Output: 0.8939966636005579
+
+# Mathematical constants
+print(math.pi)              # Output: 3.141592653589793
+print(math.e)               # Output: 2.718281828459045
+
+# 2. os Module
+
+# The os module is used to interact with the operating system, 
+# especially for file and directory operations.
+
+import os
+
+# Removes a file (file must exist)
+os.remove("sample.txt")
+
+# Creates a new directory
+os.mkdir("new")
+
+# Changes the current working directory
+os.chdir("data")
+
+# Prints current working directory
+print(os.getcwd())
+
+# Removes an empty directory
+os.rmdir("new")
+
