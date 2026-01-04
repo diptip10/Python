@@ -4192,3 +4192,46 @@ f2.disp()
 
 an2 = animals()
 an2.disp()
+
+# ================================
+# CHECKING CLASSES AND FUNCTIONS IN A MODULE
+# ================================
+
+# The dir() function is used to list
+# all attributes present inside a module.
+# This includes:
+# - Classes
+# - Functions
+# - Variables
+# - Built-in attributes (__name__, __file__, etc.)
+
+# Ex 1: MODULE CONTAINING CLASSES
+# File Name: first.py
+
+class test:
+    pass
+
+class A:
+    def m1(self):
+        print("m1 method")
+    
+    def m2(self):
+        print("m2 method")
+
+# client.py
+import first
+print(dir(first))    # shows class names: test, A
+
+# Ex 2: MODULE CONTAINING FUNCTIONS
+# File Name: first.py
+
+def m1():
+    print("m1 method")
+
+def m2():
+    print("m2 method")
+
+# client.py
+import first
+print(dir(first))    # shows function names: m1, m2
+
