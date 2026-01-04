@@ -3935,3 +3935,91 @@ a.disp()     # Output: 15
 m = Mul(5)
 m.disp()     # Output: 50
 
+# ================================
+# PACKAGES AND MODULES IN PYTHON
+# ================================
+
+# Package:
+# A package is a folder (directory) that contains multiple Python modules.
+# It is used to organize related modules into a structured hierarchy.
+
+# Module:
+# A module is a single Python file (.py) that contains functions, classes, or variables.
+# Any Python file can be treated as a module.
+
+'''
+A project can be divided into small pieces (scripts).
+Each script is called a module (Python file).
+
+Any Python file that is reused or imported is referred to as a module.
+'''
+
+# ================================
+# TYPES OF MODULES
+# ================================
+
+# 1. Predefined (Built-in) Modules:
+# These modules are already available in Python.
+# Examples:
+# re          -> Regular Expressions
+# abc         -> Abstract Base Classes
+# os          -> Operating System related tasks
+# time        -> Time-related functions
+# threading  -> Multi-threading support
+
+# 2. User-Defined Modules:
+# Modules created by the user to organize project code.
+
+# ================================
+# IMPORTING A MODULE
+# ================================
+
+# Approach:
+# import module_name
+
+# When using this approach,
+# functions or variables are accessed using the module name.
+
+# Example:
+# import operation
+# operation.add()
+# operation.sub()
+'''
+#  operations.py
+
+def add(num1,num2):
+    print(num1+num2)
+
+def mul(num1,num2):
+    print(num1*num2)
+
+'''
+
+
+# EXAMPLE 1: IMPORTING USER-DEFINED MODULE
+
+# File Name: operations.py
+# This file acts as a module containing reusable functions
+
+def add(a, b):
+    print("Addition:", a + b)
+
+def mul(a, b):
+    print("Multiplication:", a * b)
+
+# APPROACH 1: import module_name
+import operations          # importing the entire module
+operations.add(3, 3)       # access using module name
+operations.mul(4, 4)       # access using module name
+
+# APPROACH 2: from module import function
+from operations import add, mul   # importing only required functions
+add(2, 2)                         # direct function call
+mul(6, 6)
+
+
+# APPROACH 3: from module import *
+from operations import *     # importing all functions from the module
+add(4, 4)
+mul(8, 8)
+
