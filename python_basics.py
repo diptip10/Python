@@ -4023,3 +4023,59 @@ from operations import *     # importing all functions from the module
 add(4, 4)
 mul(8, 8)
 
+# EXAMPLE 2: IMPORTING MULTIPLE MODULES
+
+# File Name: operations1.py
+# User-defined module containing functions
+
+def disp1():
+    print("This is disp1 from operations1 module")
+
+def disp2():
+    print("This is disp2 from operations1 module")
+
+# File Name: A.py
+# Another user-defined module
+
+def show1():
+    print("This is show1 from A module")
+
+def show2():
+    print("This is show2 from A module")
+
+# File Name: client.py
+# Main program file
+
+# Approach 1 
+# import module_name
+
+import operations1          # importing operations1 module
+import A                    # importing A module
+
+operations1.disp1()         # access using module name
+operations1.disp2()
+A.show1()
+A.show2()
+
+# Approach 2 
+# from module import function
+
+from operations1 import disp1, disp2
+from A import show1, show2
+
+disp1()                     # direct function call
+disp2()
+show1()
+show2()
+
+# Approach 3 
+# from module import *
+
+from operations1 import *   # importing all functions
+from A import *
+
+disp1()
+disp2()
+show1()
+show2()
+
