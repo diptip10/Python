@@ -4079,3 +4079,116 @@ disp2()
 show1()
 show2()
 
+# EXAMPLE 3: NAME CONFLICT IN MODULE IMPORTS
+# ================================
+
+# File Name: operations.py
+def disp():
+    print("operations : good morning")
+
+# File Name: A.py
+def disp():
+    print("A : good morning")
+
+# File Name: client.py
+# ======================
+# Approach 1 (RECOMMENDED) 
+# import module_name
+# Avoids name conflict by using module name
+
+import operations
+import A
+
+operations.disp()    # Output: operations : good morning
+A.disp()             # Output: A : good morning
+
+# Approach 2 (NOT RECOMMENDED)
+# from module import function
+# Causes name conflict when function names are same
+
+from operations import disp
+from A import disp
+
+disp()               # Output: A : good morning
+# Reason: the most recently imported function overrides the previous one
+
+# Another example showing overwrite behavior
+from operations import disp
+disp()               # Output: operations : good morning
+
+from A import disp
+disp()               # Output: A : good morning
+
+
+# IMPORTING DATA: 3 APPROACHES
+#==================================
+# 1. Approach 1: import module_name
+#    - Access functions using module name
+#    - Safest and most recommended approach
+
+# 2. Approach 2: from module import function
+#    - Access functions directly
+#    - Can cause name conflicts if names are same
+
+# 3. Approach 3: from module import *
+#    - Imports all functions directly
+#    - High risk of name conflicts
+#    - Not recommended for large projects
+
+
+# Ex 4: IMPORTING CLASSES FROM MODULES
+
+# File Name: A1.py
+# Module containing a class
+
+class fruits:
+    def disp(self):
+        print("I like mango")
+
+# File Name: B1.py
+# Module containing a class
+
+class animals:
+    def disp(self):
+        print("I like tiger")
+
+
+# File Name: client.py
+
+# Approach 1 (RECOMMENDED)
+# import module_name
+# Class must be accessed using module name
+
+import A1
+import B1
+
+f = A1.fruits()          # accessing class using module name
+f.disp()
+
+an = B1.animals()
+an.disp()
+
+# Approach 2 
+# from module import ClassName
+
+from A1 import fruits
+from B1 import animals
+
+f1 = fruits()            # direct class access
+f1.disp()
+
+an1 = animals()
+an1.disp()
+
+#  Approach 3
+# from module import *
+# Not recommended in large projects
+
+from A1 import *
+from B1 import *
+
+f2 = fruits()
+f2.disp()
+
+an2 = animals()
+an2.disp()
