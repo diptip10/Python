@@ -4311,3 +4311,32 @@ time.sleep(1)         # Pause execution for 1 second
 print(time.strftime('%x %x %z'))     # Display current date and timezone
 print("hi dipti")
 
+# Ex 5 : sys module : sys module data is pointing to the path locations
+import sys
+print(dir(sys))
+
+# Ex 6 : regular expresssion :  also call regex or regexp for string pattern matching
+# most common uses of re
+# search a string (search and match)
+# finding string(findall)
+# break string into a sub string (split)
+# replace part of a string(sub)
+
+import re
+print(dir(re))
+
+# Ex 7 abc module : abstract
+import abc
+print(dir(abc))
+
+# Ex 8 : zipfile  : Used to create, read, write, and extract ZIP files
+import zipfile
+print(dir(zipfile))
+
+# Ex 9 :  logging   : Used for logging messages instead of print statements
+import logging
+print(dir(logging))
+
+# Ex 10 : threading : Used for multi-threaded execution
+import threading
+print(dir(threading))
