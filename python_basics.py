@@ -4542,3 +4542,15 @@ else :
     print("no exception in try block : this is else ")
 
 print("rest of the application")
+
+# # Ex 4 : the default except block must be last
+# try:
+#     num = int(input("enter a number : "))
+#     print(10/0)
+
+# except:         # default
+#     print("default except block")
+
+# except ArithmeticError as e:    SyntaxError: default 'except:' must be last
+#     print("arithmetic error")
+
