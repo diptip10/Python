@@ -4479,3 +4479,66 @@ print("rest of the application")  # this will always executed
 
 # the else block is always executed if there is no exception in try block
 
+# Ex 2 : 
+try:
+    num = int(input("enter a number: "))
+    print(10/num)
+    for x in range(10):
+        if x==2:
+            break
+except ArithmeticError as e:
+    print("error occured ..")
+
+else:
+    print("no exception in try block : this is else ")
+
+print("rest of the application")
+
+# Ex 3 : default except block
+# case when we are not using default except block
+try:
+    num = int(input("enter a number:"))   # enter string → ValueError
+    print(10/num)
+
+except ArithmeticError as e:
+    print("error occured..")
+
+else:
+    print("no exception in try block : this is else block")
+
+print("rest of the application")
+# ValueError is not handled, so the program crashes.
+
+# to avoid this we have to use default except block
+# case 1 :
+try:
+    num = int(input("enter a number : "))
+    print(10/num)
+
+except ArithmeticError as e:
+    print("arithmetic error occurred")
+
+except:
+    # default except block
+    print("some other error occurred")
+
+else:
+    print("no exception in try block : this is else")
+
+print("rest of the application")
+
+# case 2 :
+try :
+    num = int(input("enter a number : "))
+    print(10/num)
+
+except ArithmeticError as e :
+    print("this is arithmetic error")
+
+except :      # default except block
+    print("other error is handle with this default except")
+
+else : 
+    print("no exception in try block : this is else ")
+
+print("rest of the application")
