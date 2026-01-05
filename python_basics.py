@@ -4454,3 +4454,28 @@ except TypeError as e:
 
 print("rest of the application")  # Executes normally
 
+# EXCEPTION HANDLING : else block and default except
+# else block is executed ONLY when no exception occurs in try block
+
+# Ex 1 : try-except-else
+ 
+try:
+    num = int(input("enter a number : "))    # enter number 2 -- no exception in try block
+    print(10 / num)                       # risky code
+
+except ArithmeticError as e:
+    print("arithmetic error")             # handles arithmetic exceptions
+
+else:
+    print("no exception in try block : this is else")  # runs if no exception
+   
+print("rest of the application")  # this will always executed
+
+# Notes:
+# - Input = 2  → try block successful → else block executes
+# - Input = 0  → ArithmeticError → else block does NOT execute
+# - Input = abc → ValueError → else block does NOT execute
+# - Code after try-except-else always executes# enter a number 0 (zero)  # else block will not execute
+
+# the else block is always executed if there is no exception in try block
+
