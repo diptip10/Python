@@ -4292,3 +4292,22 @@ print(os.getcwd())
 # Removes an empty directory
 os.rmdir("new")
 
+# Ex 3  :  random  : Used to generate random values
+import random        # Import random module
+print(dir(random))     # Display all available functions in random module
+
+print(random.randint(1, 100))   # Generate a random integer between 1 and 100 (inclusive)
+print(random.choice(['red', 'black', 'green']))   # Select a random element from a list
+ 
+mylist = [1, 10.5, False, "dipti", "swaraj"]    # List with mixed data types
+print(random.choice(mylist))     # Select a random element from the list
+
+# Ex 4 : time : Used to work with time-related operations
+import time    # Import time module
+print(dir(time))    # Display all available functions in time module
+
+print("hii dipti")   
+time.sleep(1)         # Pause execution for 1 second
+print(time.strftime('%x %x %z'))     # Display current date and timezone
+print("hi dipti")
+
