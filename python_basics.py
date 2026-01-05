@@ -4340,3 +4340,117 @@ print(dir(logging))
 # Ex 10 : threading : Used for multi-threaded execution
 import threading
 print(dir(threading))
+
+# Exception Handling in Python (try – except)
+# 
+#  Errors are problems that occur during program execution.
+
+# Types of Errors
+# 1. Syntax Error – Occurs due to incorrect syntax (detected at compile time)
+
+# 2. Exception (Runtime Error) – Occurs while the program is running
+#  ZeroDivisionError
+#  IndexError
+#  ValueError
+#  TypeError
+
+# Problems Without Exception Handling
+# If an application contains an exception:
+# 1. The program terminates abnormally
+# 2. The rest of the application does not execute
+
+# Main Objective of Exception Handling
+# Using try-except:
+# 1. Program terminates normally
+# 2. Remaining code continues execution
+
+# Syntax:
+# try:
+#     risky code
+# except:
+#     alternate code (executes when exception occurs)
+
+# Ex 1: Application WITHOUT try-except
+print("dipti")
+print(10 / 0)           # ZeroDivisionError → abnormal termination
+print("rest of the application")
+
+#  Application WITH try-except
+print("dipti")
+
+try:
+    print(10 / 0)       # risky code
+except ZeroDivisionError as e:
+    print(10 / 5)       # alternate code when exception occurs
+
+print("rest of the application")
+
+# Ex 2 : If the except block does NOT match the raised exception,
+# the program terminates abnormally
+try:
+    print(10 / 0)          # Raises ZeroDivisionError
+
+except TypeError as e:     # This except block does NOT match
+    print(10 / 5)
+    print("rest of the application")
+# Since ZeroDivisionError is not handled,
+# the program stops and code below is NOT executed
+
+# Ex 3 : If there is NO exception in the try block,
+# the except block is NOT executed
+
+try:
+    print("dipti")        # No exception occurs
+
+except TypeError as e:
+    print(10 / 5)         # This block is skipped
+
+print("rest of the application")  # Executes normally
+
+# Ex 4 : Only try block is INVALID
+# A try block must be followed by at least one except or finally block
+
+# try:
+#     print("dipti")
+
+# # SyntaxError: expected 'except' or 'finally'
+
+# print("rest of the application")
+
+# Ex 5 : Statements are NOT allowed between try and except blocks
+# try, except, else, and finally must be continuous
+
+# try:
+
+# print("invalid")     #  INVALID: statement between try and except
+
+# except Exception as e:
+#     print("exception occurred")
+
+# Ex 6 : Multiple statements in try block
+# Case 1 : Exception occurs in the middle of try block
+
+try:
+    print("python")              # Executes
+    print("java")                # Executes
+    print(10 + "python")         # TypeError occurs here
+
+except TypeError as e:
+    print("python codes", e)     # Handles the exception
+
+print("rest of the application") # Executes normally
+
+#  Case 2
+# If an exception occurs at the first statement in try block,
+# remaining statements in try block are NOT executed
+
+try:
+    print(10 + "python")          # TypeError occurs here
+    print("dipti")                # Skipped
+    print("data")                 # Skipped
+
+except TypeError as e:
+    print("python program :", e)  # Handles the exception
+
+print("rest of the application")  # Executes normally
+
