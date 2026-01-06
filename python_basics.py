@@ -4650,3 +4650,53 @@ except BaseException as b:
 except ZeroDivisionError as a:
     print("Zero Division Error")
 
+# EXCEPTION HANDLING : NESTED TRY-EXCEPT (METHOD EXCEPTION)
+# Ex 1:
+
+# case 1 : 
+try:
+    print("Outer try block")
+    n = int(input("Enter a number: "))     # Input and division (may raise ZeroDivisionError)
+    print(10 / n)
+
+    try:
+        print("Inner try")
+        print("python" + 10)       # Causes TypeError (int + str)
+
+    except TypeError as a:     # Handles TypeError inside inner try
+        print("Type Error in inner try")
+
+    else:              # Executes if no exception in inner try
+        print("Inner else block")
+
+except ZeroDivisionError as e:   # Handles ZeroDivisionError from outer try
+    print("Zero Division Error in outer try")
+
+else:    # Executes if no exception in outer try
+    print("Outer else block")
+
+print("Rest of the application")  # Always executes
+
+# case 2 :
+try:
+    print("outer try block")
+    n = int(input("enter a number:"))
+    print(10/n)
+
+    try:
+        print("inner try")
+        print("python"+"language")
+    
+    except TypeError as a:
+        print("type error occured..")
+    
+    else:
+        print("inner else block")
+
+except (ZeroDivisionError,ValueError) as e:
+    print("error in outer try block") 
+
+else:
+    print("outer else block")
+
+print("rest of the application")
