@@ -4585,3 +4585,68 @@ except (ZeroDivisionError, ValueError) as a:
 
 # This line executes regardless of exception
 print("Rest of the application")
+
+# Ex 3 
+try:
+    num = int(input("Enter a number: "))    # Takes input from the user and converts it to integer
+    print(10 / num)               # May raise ZeroDivisionError if num is 0
+
+except BaseException as a:    # BaseException is the parent class of all exceptions
+    print("Error occurred:", a)    # Prints the actual error message
+
+print("rest of the application")
+
+
+# EXCEPTION HANDLING : GENERIC EXCEPTION USING Exception
+# Ex 4
+try:
+    num = int(input("Enter a number: "))      # Read input and convert to integer
+    print(10 / num)     # Perform division (may raise ZeroDivisionError)
+
+except Exception as a:     # Catches all common runtime exceptions
+    print("Exception =", a)
+
+print("Rest of the application")  # Executes regardless of exception
+
+# NOTE: All except blocks are valid, but behavior differs
+
+# Handles specific exceptions
+# except (ZeroDivisionError, ValueError):
+
+# Handles all exceptions (not recommended)
+# except BaseException:
+
+# Handles most runtime exceptions (best practice)
+# except Exception:
+
+# Default except block (use carefully, write last)
+# except:
+
+# case 1 : perfect child to parent
+try:
+    # Read input and perform division
+    num = int(input("Enter a number: "))
+    print(10 / num)
+
+except ZeroDivisionError as a:    # Child exception (specific) – must come first
+    print("Zero Division Error")
+
+except BaseException as b:   # Parent exception (generic)
+    print("Base Exception")
+
+print("Rest of the application")  # Always executes
+
+# case 2 : VALID SYNTAX BUT NO USE (PARENT to CHILD ORDER)
+try:
+    # Read input and perform division
+    num = int(input("Enter a number: "))
+    print(10 / num)
+
+# Parent exception catches everything first
+except BaseException as b:
+    print("Base Exception")
+
+# Child exception is unreachable (never executed)
+except ZeroDivisionError as a:
+    print("Zero Division Error")
+
