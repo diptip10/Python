@@ -4554,3 +4554,34 @@ print("rest of the application")
 # except ArithmeticError as e:    SyntaxError: default 'except:' must be last
 #     print("arithmetic error")
 
+# EXCEPTION HANDLING : TRY WITH MULTIPLE EXCEPT BLOCKS
+
+try:
+    num = int(input("Enter a number: "))   # Takes input from the user and converts it to integer
+    print(10 / num)   # May raise ZeroDivisionError if num is 0
+    print(10 + "python")   # Will raise TypeError (int + str is not allowed)
+
+except ZeroDivisionError as a:    # Executes when division by zero occurs
+    print("Zero Division Error occurred")
+
+except ValueError as b:    # Executes when invalid input (non-integer) is given
+    print("Value Error occurred")
+
+except:                    # Executes for any other exception not handled above
+    print("Default except block executed")
+
+print("Rest of the application")   # This statement always executes
+
+
+# EXCEPTION HANDLING : HANDLING MULTIPLE EXCEPTIONS USING A SINGLE EXCEPT
+# Ex 2
+try:
+    num = int(input("Enter a number: "))    # Takes input from the user and converts it to integer
+    print(10 / num)               # May raise ZeroDivisionError if num is 0
+
+# Handles both ZeroDivisionError and ValueError in a single except block
+except (ZeroDivisionError, ValueError) as a:
+    print("Error message:", a)
+
+# This line executes regardless of exception
+print("Rest of the application")
