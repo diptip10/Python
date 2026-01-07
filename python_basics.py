@@ -4744,3 +4744,163 @@ try:
 
 except BaseException as a:
     print("this is base exception:",a)
+
+# EXCEPTION HANDLING : FINALLY BLOCK
+# --------------------------------
+# try     : Contains code that may raise an exception
+# except  : Contains alternate code (executes only if an exception occurs)
+# finally : Always executes (used for cleanup activities)
+
+# Case 1 : Valid – Normal termination (No exception)
+try:
+    print("try")              # Executes successfully
+
+except TypeError as e:
+    print("except")           # Will NOT execute
+
+finally:
+    print("finally")          # Always executes
+
+
+# Case 2 : Valid – Exception occurs but handled
+try:
+    print(20 + "python")      # Raises TypeError
+
+except TypeError as e:
+    print("except")           # Executes because exception occurred
+
+finally:
+    print("finally")          # Always executes
+
+# Case 3 : Invalid – Abnormal termination
+# Reason:
+# - Exception occurs in try block
+# - Except block does NOT match the exception type
+# - Finally block still executes
+# - Program terminates abnormally after finally
+
+try:
+    print(10 + "python")      # Raises TypeError
+
+except ValueError as e:
+    print("except")           # Will NOT execute (exception type mismatch)
+
+finally:
+    print("finally")          # Always executes
+
+# Ex 4 : Invalid – Abnormal termination
+# Reason:
+# - Exception occurs in try block
+# - Exception is caught in except block
+# - Another exception occurs inside except block
+# - Finally block still executes
+# - Program terminates abnormally
+
+try:
+    print(10 + "python")      # Raises TypeError
+
+except TypeError as e:
+    print(10 / 0)             # Raises ZeroDivisionError during exception handling
+
+finally:
+    print("finally")          # Always executes
+
+# Ex 5 : Invalid – Abnormal termination
+# Reason:
+# - Exception occurs in try block
+# - Exception is properly handled in except block
+# - Finally block raises a new exception
+# - Program terminates abnormally
+
+try:
+    print(10 + "python")      # Raises TypeError
+
+except TypeError as e:
+    print("type error")       # Exception handled successfully
+
+finally:
+    print(10 / 0)             # Raises ZeroDivisionError
+
+# Ex 6 : valid : normal termination
+try:
+    print("try")
+
+finally:
+    print("finally")
+
+# in two cases finally block not executed
+# case 1
+print(10/0)   # the control not enter in try block
+try:
+    print("try")
+
+finally:
+    print("finally") 
+
+# case 2 : to stop execution we have os module and os module contains exit function
+import os
+try:
+    print("try")
+    os._exit(0)  # _exit(0): virtual machine will be shutdown and finally block will not execute
+finally:
+    print("finally")
+
+
+# Case 1 : Multiple exceptions in try, except, finally
+
+# Priority:
+# finally > except > try
+# Exception raised in finally overrides all others
+
+try:
+    print(10 / 0)            # ZeroDivisionError
+
+except ZeroDivisionError as a:
+    print(10 + "python")     # TypeError inside except
+
+finally:
+    s = "python"
+    print(s[9])              # IndexError inside finally
+
+
+# case 2: return in try, except and finally
+# 
+def m1():
+    try:
+        return 10
+    except:
+        return 20
+    finally:
+        return 30
+
+print(m1())
+
+#   return in try and finally only
+# finally always executes and overrides return
+def m1():
+    try:
+        return 10
+    finally:
+        return 30
+
+print(m1())
+
+# return in try and except (no finally)
+# No exception - try return executes
+def m1():
+    try:
+        return 10
+    except:
+        return 20
+print(m1())
+
+# Exception in try, return in except
+# Exception occurs - except block executes
+def m1():
+    try:
+        print(10/0)
+        return 10
+    except:
+        return 20
+
+print(m1())
