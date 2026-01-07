@@ -4700,3 +4700,47 @@ else:
     print("outer else block")
 
 print("rest of the application")
+
+
+# Ex 2 : Exception Handling in Methods (Functions)
+
+# Case 1 : Handling exception inside the method itself
+
+# Module 1 : Function declaration
+def m1():
+    try:
+        print(10 / 0)        # Raises ZeroDivisionError
+    except ZeroDivisionError as e:
+        print(10 / 5)        # Exception handled inside the method
+
+# Module 2 : Function call
+m1()
+
+# Case 2 : Handling exception while calling the method
+
+# Module 1 : Function declaration
+def m1():
+    print(10 / 0)            # Raises ZeroDivisionError
+
+# Module 2 : Function call with exception handling
+try:
+    m1()
+except ZeroDivisionError as a:
+    print(10 / 5)            # Exception handled at calling place
+
+# Ex 3 
+# module 1 : declarations
+
+def m1():
+    print(10/0)
+
+def m2():
+    print(10+"python")
+
+# module 2 : accessing
+try:
+    m1()
+    m2()
+
+except BaseException as a:
+    print("this is base exception:",a)
