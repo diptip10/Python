@@ -5109,3 +5109,148 @@ t1 = threading.Timer(3, disp)
 
 # Starting the timer thread
 t1.start()
+
+# Example 7: Thread names
+# Default name of main thread is "MainThread"
+# Default names of user-defined threads are "Thread-1", "Thread-2", ...
+
+import threading
+
+def f1():
+    # current_thread() returns the currently executing thread
+    # getName() returns the name of the thread
+    print("Thread name:", threading.current_thread().getName())
+
+def f2():
+    print("Thread name:", threading.current_thread().getName())
+
+# Creating threads
+t1 = threading.Thread(target=f1)  # by default thread names
+t2 = threading.Thread(target=f2)
+
+# Starting threads
+t1.start()
+t2.start()
+
+# Part 2: User-defined thread names
+def f3():
+    print("Thread name:", threading.current_thread().getName())
+
+def f4():
+    print("Thread name:", threading.current_thread().getName())
+
+# Creating threads with user-defined names
+t3 = threading.Thread(target=f3, name="dipti")
+t4 = threading.Thread(target=f4, name="swaraj")
+
+# Starting threads
+t3.start()
+t4.start()
+
+# Example 8: sleep() – pauses thread execution
+import threading
+import time
+
+def disp():
+    print("Good Morning")
+    time.sleep(2)        # sleep() stops the execution of the current thread for 2 seconds
+    print("Good Evening")
+
+# Creating the thread
+t1 = threading.Thread(target=disp)
+
+# Starting the thread
+t1.start()
+
+# Example 9: Creating multiple threads
+
+import threading
+import time
+
+def disp():
+    print("Good Morning")
+    time.sleep(2)     # Pause execution for 2 seconds
+    print("Good Evening")
+
+# Ex 10 : 
+# Creating and starting multiple threads
+for x in range(5):
+    t = threading.Thread(target=disp)
+    t.start()
+
+# Creating multiple threads using a list
+import threading
+import time
+
+def disp():
+    print("Good morning...")
+    time.sleep(2)              # Pause thread for 2 seconds
+    print("Good evening")
+
+threads = []                   # List to store thread objects
+
+for _ in range(5):
+    t = threading.Thread(target=disp)  # Create thread
+    threads.append(t)                  # Add thread to list
+    t.start()                          # Start thread
+
+time.sleep(3)                   # Main thread waits
+print(threads)                  # Print thread objects
+
+
+# Ex 11: join() - pauses the current thread until the target thread completes
+import threading
+import time
+
+def disp1():
+    # Prints message 5 times with 1-second delay
+    for x in range(5):
+        print("Thread-1 running")
+        time.sleep(1)
+
+def disp2():
+    # Prints message 5 times with 1-second delay
+    for x in range(5):
+        print("Thread-2 running")
+        time.sleep(1)
+
+# Create threads
+t1 = threading.Thread(target=disp1)    # create thread 1
+t2 = threading.Thread(target=disp2)    # create thread 2
+
+t1.start()    # Start Thread-1
+t1.join()     # Main thread waits until Thread-1 finishes
+
+t2.start()    # Start Thread-2
+t2.join()     # Main thread waits until Thread-2 finishes
+
+print("Rest of the application")  # Executes after both threads end
+
+# Case 1: Main thread does NOT wait for Thread-2
+t1 = threading.Thread(target=disp1)
+t2 = threading.Thread(target=disp2)
+
+t1.start()    # Start Thread-1
+t1.join()     # Wait for Thread-1 to finish
+t2.start()    # Start Thread-2 (no join → main may exit early)
+
+# Case 2: Main thread waits for both threads
+t1 = threading.Thread(target=disp1)
+t2 = threading.Thread(target=disp2)
+
+t1.start()    # Start Thread-1
+t1.join()     # Wait for Thread-1
+
+t2.start()    # Start Thread-2
+t2.join()     # Wait for Thread-2
+
+print("rest of the application")  # Runs after both threads finish
+
+# case 3 :   join() with timeout
+t1 = threading.Thread(target=disp1)
+t2 = threading.Thread(target=disp2)
+
+t1.start()        # Start Thread-1
+t1.join(2)       # Wait only 2 seconds for Thread-1
+t2.start()        # Start Thread-2 even if Thread-1 is still running
+
