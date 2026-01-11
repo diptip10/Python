@@ -4971,3 +4971,141 @@ status(age)
 # whereas user-defined exceptions are more flexible
 # and better for application-specific errors
 
+
+# MULTITHREADING
+
+# Thread: A lightweight process or small unit of execution
+#         created and managed by the virtual machine (VM)
+
+# Process: A heavyweight task created by the operating system kernel
+
+# One process can contain multiple threads
+
+# Executing multiple threads simultaneously
+# is called the multithreading concept
+
+# Thread creation modules in Python:
+# 1. threading  (recommended)
+# 2. thread     (deprecated)
+
+# Ex 1 : 
+# Example 1: Basic multithreading using threading module
+
+import threading
+
+# Function to print square of a number
+def print_square(num):
+    print("Square:", num * num)
+
+# Function to print cube of a number
+def print_cube(num):
+    print("Cube:", num * num * num)
+
+# Creating threads
+# args must be a tuple, so use (value,)
+t1 = threading.Thread(target=print_square, args=(10,))
+t2 = threading.Thread(target=print_cube, args=(5,))
+
+# Starting the threads
+t1.start()
+t2.start()
+
+# Ex 2: Creating thread using Thread class directly
+
+from threading import Thread
+
+# Function to print square of a number
+def print_square(num):
+    print("Square:", num * num)
+
+# Creating thread
+# Thread can be accessed directly without using module name
+t1 = Thread(target=print_square, args=(10,))
+
+# Starting the thread
+t1.start()
+
+# Multithreading is very important in designing gaming applications
+# where multiple objects are moving at the same time
+
+# Example 3: Multithreading with multiple functions
+
+import threading
+
+# First thread function
+def disp1():
+    for x in range(3):
+        print("hello")
+
+# Second thread function
+def disp2():
+    for x in range(4):
+        print("swaraj thread")
+
+# Create threads
+t1 = threading.Thread(target=disp1)
+t2 = threading.Thread(target=disp2)
+
+# Start the threads
+t1.start()
+t2.start()
+
+# Wait for threads to complete
+t1.join()
+t2.join()
+
+print("Main thread completed")
+
+# Example 4: Main thread and thread states
+import threading
+
+# Display the main thread details
+print(threading.main_thread())
+
+# Create a new thread without a target function
+t1 = threading.Thread()
+
+# Thread before start (NEW state)
+print(t1)
+
+# Start the thread (RUNNABLE state)
+t1.start()
+
+# Thread after start (TERMINATED state)
+print(t1)
+
+# This program shows the main thread and the life cycle of a thread.
+# The main thread executes first.
+# A new thread is created and started.
+# Since no target function is given, the thread terminates immediately.
+
+# Example 5: Thread can be started only once
+import threading
+
+# Creating a new thread (no target function)
+t1 = threading.Thread()
+
+# Starting the thread for the first time
+t1.start()
+
+# Starting the same thread again will raise an error
+# RuntimeError: threads can only be started once
+# t1.start()
+
+# Every Python program has one default thread
+# called the main thread
+# The main thread can be accessed using main_thread().
+
+# Example 6: Start a thread after 3 seconds using Timer
+import threading
+
+# Function to be executed after delay
+def disp():
+    print("Hi Dipti, how are you? It is printing after 3 seconds")
+
+# Creating a timer thread
+# Timer(delay_in_seconds, function)
+t1 = threading.Timer(3, disp)
+
+# Starting the timer thread
+t1.start()
