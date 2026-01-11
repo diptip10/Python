@@ -5254,3 +5254,127 @@ t1.start()        # Start Thread-1
 t1.join(2)       # Wait only 2 seconds for Thread-1
 t2.start()        # Start Thread-2 even if Thread-1 is still running
 
+# Ex 12 : to check no. of threads in application - active_count()
+# to check no. of threads in active mode - enumerate()
+import threading
+import time
+
+def m1():
+    # Runs for 5 seconds
+    for x in range(5):
+        print("python")
+        time.sleep(1)
+
+def m2():
+    # Runs instantly
+    print("language")
+
+# Create thread objects
+t1 = threading.Thread(target=m1)
+t2 = threading.Thread(target=m2)
+
+# Start threads
+t1.start()
+t2.start()
+
+# Print total number of active threads
+print("Active thread count:", threading.active_count())
+
+# Print names of all active threads
+for t in threading.enumerate():
+    print("Running thread:", t.getName())
+
+# Ex 13: Creating a custom thread using the Thread class
+import threading  # Import the threading module to work with threads
+
+# Step 1: Define a class that inherits from threading.Thread
+class MyThread(threading.Thread):
+    # Step 2: Override the run() method
+    # This method contains the code that will execute in the new thread
+    def run(self):
+        for x in range(5):  # Loop 5 times
+            print("hello")   # Print "hello" in each iteration
+
+# Step 3: Create an instance of the custom thread class
+t = MyThread()
+
+# Step 4: Start the thread
+# This will call the run() method in a separate thread
+t.start()
+
+# Note: t.start() runs the thread asynchronously, so the main program
+# may continue executing while the thread is running.
+
+# Ex 14: Multiple threads executing the same task
+import threading  # Import threading module
+
+# Step 1: Create a thread class by extending threading.Thread
+class MyThread(threading.Thread):
+    
+    # Step 2: Override the run() method
+    # This method defines the task performed by each thread
+    def run(self):
+        for x in range(3):        # Loop runs 3 times
+            print("threading")    # Task executed by each thread
+
+# Step 3: Create multiple thread objects of the same class
+t1 = MyThread()
+t2 = MyThread()
+t3 = MyThread()
+
+# Step 4: Start all threads
+# Each start() call creates a new thread and executes run()
+t1.start()
+t2.start()
+t3.start()
+
+# Step 5: active_count() returns the number of active threads
+# (including the main thread)
+print(threading.active_count())
+
+# Ex 14: Multiple threads executing the same task
+
+import threading  # Import threading module
+
+# Step 1: Create a thread class by extending threading.Thread
+class MyThread(threading.Thread):
+    
+    # Step 2: Override the run() method
+    # This method defines the task performed by each thread
+    def run(self):
+        for x in range(3):        # Loop runs 3 times
+            print("threading")    # Task executed by each thread
+
+# Step 3: Create multiple thread objects of the same class
+t1 = MyThread()
+t2 = MyThread()
+t3 = MyThread()
+
+# Step 4: Start all threads
+# Each start() call creates a new thread and executes run()
+t1.start()
+t2.start()
+t3.start()
+
+# Step 5: active_count() returns the number of active threads
+# (including the main thread)
+print(threading.active_count())
+
+# Ex 16 : to give name of threads
+import threading
+class MyThread1(threading.Thread):
+    def run(self):
+        print("good morning ",threading.current_Thread().getName())
+
+class MyThread2(threading.Thread):
+    def run(self):
+        print("good evening",threading.current_thread().getName())
+
+class MyThread3(threading.Thread):
+    def run(self):
+        print("good night",threading.current_thread().getName())
+
+# without reference we re calling the data
+MyThread1(name = "dipti").start()
+MyThread2(name = "swaraj").start()
+MyThread3(name = "ajinkya").start()
