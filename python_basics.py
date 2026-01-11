@@ -4904,3 +4904,70 @@ def m1():
         return 20
 
 print(m1())
+
+# EXCEPTION HANDLING : RAISE KEYWORD : USER EXCEPTION
+# by using raise keyword it is possible to raise the predefined and user-defined exception
+
+# two types of exception
+# 1. predefined : ArithmeticError, ValueError
+# 2. user-defined : InvalidAgeError, InputMisMatchError
+
+# Case 1: Raised exception and except exception are DIFFERENT
+try:
+    raise ArithmeticError("hello dipti how are you")  # raises ArithmeticError
+except ValueError as e:
+    print("value error")  # NOT executed (exception mismatch)
+# Result: ArithmeticError is UNHANDLED - program stops with error
+
+
+# Case 2: Raised exception and except exception are SAME
+try:
+    raise ValueError("hello dipti how are you")  # raises ValueError
+except ValueError as e:
+    print("value error")  # executed
+# Result: ValueError is HANDLED
+
+
+# Ex 1 : Using predefined exception (ValueError)
+age = int(input("enter age : "))
+
+def status(age):
+    if age>21:
+        print("eligible for mrg")
+    
+    else:
+        raise ValueError("you are not eligible for mrg")  # ValueError - not recommended
+# function calling
+status(age)
+
+# raise is used to manually generate an exception
+# It is mainly used with predefined exceptions
+# Predefined exceptions automatically display error message and type
+
+
+# raise : user exception
+# step 1 : create the exception
+# step 2 : use the exception in our project
+
+# Ex 2: Using user-defined exception (Recommended)
+# step 1 : create the exception
+age = int(input("enter a age : "))
+
+class InvalidAgeException(exception):
+    def __init__(self,msg):
+        self.msg = msg
+
+# step 2 : use the exception in our project
+def status(age):
+    if age>21:
+        print("eligible for mrg")
+    else:
+        raise InvalidAgeException("you are not eligible for mrg")
+
+status(age)
+
+# Raising predefined exceptions is less powerful
+# because they already have fixed meanings,
+# whereas user-defined exceptions are more flexible
+# and better for application-specific errors
+
