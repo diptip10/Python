@@ -5378,3 +5378,92 @@ class MyThread3(threading.Thread):
 MyThread1(name = "dipti").start()
 MyThread2(name = "swaraj").start()
 MyThread3(name = "ajinkya").start()
+
+# FILE HANDLING IN PYTHON
+
+# Files are of two types:
+# 1. Binary files:
+#    Used to store non-text data
+#    Examples: mp3, image, pdf, audio, video
+#
+# 2. Text files:
+#    Used to store text format data
+#    Examples: .txt, .c, .java, .py
+
+# STEPS TO PERFORM FILE OPERATIONS
+
+# Step 1: Open the file using open()
+# Step 2: Perform read or write operations
+#         Reading methods:
+#           - read()
+#           - readline()
+#           - readlines()
+#         Writing method:
+#           - write()
+# Step 3: Close the file using close()
+
+# FILE MODES
+
+# r  -> Read mode (default mode)
+# w  -> Write mode
+# a  -> Append mode
+
+# IMPORTANT NOTES
+
+# Note 1:
+# The default file operation mode is read ('r')
+
+# Note 2:
+# To read data, the file must exist
+# To write data, the file is optional
+# If the file does not exist, it will be created automatically
+
+# Ex 1: Write Operation
+
+# In write mode ('w'), the file is optional
+# If the file does not exist, it will be created
+# If the file already exists, its content will be overwritten
+
+# Open the file in write mode
+f = open("sample.txt", "w")
+
+# Write data into the file
+f.write("Hello\nHow are you")
+
+# Close the file to save changes and release resources
+f.close()
+
+# Confirmation message
+print("Write operation completed successfully")
+
+# Ex 2: Read Operation
+
+# In read mode ('r'), the file is mandatory
+# If the file does not exist, an error will occur
+f = open("sample.txt", "r")    # Open the file in read mode
+data = f.read()     # Read entire content of the file
+print(data)    # Display file content
+
+f.close()    # Close the file
+
+print("Read operation completed successfully")
+
+# Handling Errors While Reading a File
+
+# If any problem occurs while reading the file,
+# we can handle it using try-except block
+
+try:
+    f = open("sample.txt")      # Open file in default read mode
+
+    # Read file content
+    data = f.read()
+    print(data)
+
+    f.close()     # Close the file
+ 
+except IOError as e:
+    # Handles file-related input/output errors
+    print("Operation failed:", e)
+
+print("Program execution completed")
